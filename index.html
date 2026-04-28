@@ -72,7 +72,7 @@
     <div class="container">
         <div class="header">
             <h1>🧴 B&W 北区 · 周报追踪 <span class="brand-badge">秋收城市 · 北京/石家庄/保定/沈阳</span></h1>
-            <div class="subhead">联合利华 · 共享版 · 数据实时同步至维格表</div>
+            <div class="subhead">联合利华 · 共享版 · 新版KPI结构</div>
         </div>
         <div class="user-card">
             <span class="label-lg">👤 当前身份</span>
@@ -136,28 +136,46 @@
             let viewingSubordinateId = null;
             let showLevel1 = false;
 
-            // KPI结构
-            const level3Categories = [
-                { name: '清扬增长 +10%', color: '#1e88e5', groups: [
-                    { groupName: '销量KPI', groupId: '销量KPI', kpis: [{ id: 'sales_l1', name: '一级销量' }, { id: 'sales_l2', name: '二级销量' }] },
-                    { groupName: 'key pack拿货进展', groupId: 'keypack', kpis: [{ id: 'keypack_940g', name: '940g' }, { id: 'keypack_650g', name: '650g' }, { id: 'keypack_508g', name: '508g' }, { id: 'keypack_175g_label', name: '175g贴标' }, { id: 'keypack_175_25g', name: '175+25g' }] },
-                    { groupName: 'KPI1 C罗瓶', groupId: 'C罗瓶', kpis: [{ id: 'c_508_take', name: '508g拿货' }, { id: 'c_508_dist', name: '508g分销' }, { id: 'c_940_take', name: '940g拿货' }, { id: 'c_940_dist', name: '940g分销' }] },
-                    { groupName: 'KPI2 完美门店', groupId: '完美门店', kpis: [{ id: 'perfect_osa', name: 'OSA', target: 70 }, { id: 'perfect_facing', name: 'Facing' }, { id: 'perfect_tcp', name: 'TCP' }, { id: 'perfect_posm', name: 'POSM' }, { id: 'perfect_rq', name: '摘金RQ' }] },
-                    { groupName: '标准活动和ICE', groupId: '标准活动和ICE', kpis: [{ id: 'clear_action', name: '标准活动和ICE' }] },
-                    { groupName: '清扬月活', groupId: '清扬月活', kpis: [{ id: 'clear_coverage', name: '月活100%' }] },
-                    { groupName: '新兴渠道', groupId: '新兴渠道', noData: true }
-                ]},
-                { name: '多芬 Dream & Debeers', color: '#2e9a6e', groups: [
-                    { groupName: '多芬上架开码', groupId: '多芬', kpis: [{ id: 'dove_launch', name: '上架开码' }] }
-                ]},
-                { name: 'VSL 夏季增量', color: '#8e44ad', groups: [
-                    { groupName: 'VSL夏季线', groupId: 'VSL', kpis: [{ id: 'vsl_listing', name: '夏季开码' }, { id: 'vsl_image', name: '留图30%', target: 30 }] }
+            // ========== 新版KPI结构 ==========
+            // 业绩追踪
+            const performanceGroups = [
+                { groupName: '一级销量', groupId: '一级销量', kpis: [{ id: 'bw_niv', name: 'BW NIV' }, { id: 'pc_niv', name: 'PC NIV' }] },
+                { groupName: '二级销量', groupId: '二级销量', kpis: [{ id: 'bw_secondary', name: 'BW 二级销售' }, { id: 'pc_secondary', name: 'PC 二级销售' }] },
+                { groupName: '新品PPL', groupId: '新品PPL', kpis: [{ id: 'bw_fifa_ppl', name: 'BW FIFA PPL' }, { id: 'pc_fifa_shower', name: 'PC清扬FIFA沐浴露' }] },
+                { groupName: 'Key pack拿货', groupId: 'Key pack拿货', kpis: [
+                    { id: 'clear_940', name: 'Clear 940' }, { id: 'clear_650', name: 'Clear 650' }, { id: 'clear_175_25', name: 'Clear 175+25 (12+1)' },
+                    { id: 'bubble_700', name: '气泡700' }, { id: 'fu_700', name: '馥郁700' }, { id: 'fruit_milk', name: '果奶冰柚' }
                 ]}
             ];
-            const allGroups = level3Categories.flatMap(c => c.groups);
-            const allKpis = allGroups.filter(g => !g.noData).flatMap(g => g.kpis);
+            // 执行追踪
+            const executionGroups = [
+                { groupName: '大店执行', groupId: '大店执行', noData: true, kpis: [
+                    { id: 'osa', name: 'OSA(TOP20 SKU分销70%)' }, { id: 'facing_posm', name: 'Facing(POSM)执行' },
+                    { id: 'shelf_renew', name: '货架焕新' }, { id: 'pog', name: 'POG' }, { id: 'tcp', name: 'TCP' },
+                    { id: 'standard_activity', name: '标准活动' }, { id: 'rq_plus', name: 'RQ+2' }, { id: 'ice', name: 'ICE' }
+                ]},
+                { groupName: '小店执行-AS', groupId: '小店执行-AS', noData: true, kpis: [
+                    { id: 'quarter_508_hair', name: '季活508g套餐(HAIR)' }, { id: 'new_dist_hair', name: '新增分销奖励(HAIR)' },
+                    { id: 'contract', name: '包场' }, { id: 'eb2b', name: 'EB2B' }, { id: 'quarter_lux_pc', name: '季活LUX套装(PC)' }
+                ]},
+                { groupName: '新兴渠道', groupId: '新兴渠道', noData: true, kpis: [
+                    { id: 'flash_warehouse', name: '闪电仓' }, { id: 'club_customer', name: 'Club客户' }
+                ]}
+            ];
+            // 清扬板块由业绩追踪和执行追踪组成
+            const clearGroups = [...performanceGroups, ...executionGroups];
+            // 多芬和VSL保持不变
+            const doveGroups = [
+                { groupName: '多芬上架开码', groupId: '多芬', kpis: [{ id: 'dove_launch', name: '上架开码' }] }
+            ];
+            const vslGroups = [
+                { groupName: 'VSL夏季线', groupId: 'VSL', kpis: [{ id: 'vsl_listing', name: '夏季开码' }, { id: 'vsl_image', name: '留图30%', target: 30 }] }
+            ];
+            // 所有分组
+            const allGroups = [...clearGroups, ...doveGroups, ...vslGroups];
+            const allKpis = allGroups.flatMap(g => g.kpis);
 
-            // 真实数据（完整18人保持不变）
+            // 真实数据（原有数据保留，新增KPI使用模拟数据）
             const realData = {
                 daiyajuan: { sales_l1:{target:921,actual:305,achieve:0.33}, sales_l2:{target:924,actual:278,achieve:0.30}, keypack_940g:{target:551,actual:63,achieve:0.11}, keypack_650g:{target:315,actual:466,achieve:1.48}, keypack_508g:{target:199,actual:19,achieve:0.10}, keypack_175g_label:{target:189,actual:464,achieve:2.46}, keypack_175_25g:{target:1575,actual:353,achieve:0.22} },
                 baoyue: { sales_l1:{target:667,actual:615,achieve:0.92}, sales_l2:{target:695,actual:179,achieve:0.26}, keypack_940g:{target:100,actual:81,achieve:0.81}, keypack_650g:{target:128,actual:222,achieve:1.73}, keypack_508g:{target:248,actual:37,achieve:0.15}, keypack_175g_label:{target:364,actual:2181,achieve:5.99}, keypack_175_25g:{target:974,actual:124,achieve:0.13} },
@@ -179,28 +197,32 @@
                 shaofeihua: { sales_l1:{target:759,actual:181,achieve:0.24}, sales_l2:{target:875,actual:322,achieve:0.37}, keypack_940g:{target:0,actual:0,achieve:0}, keypack_650g:{target:0,actual:0,achieve:0}, keypack_508g:{target:0,actual:0,achieve:0}, keypack_175g_label:{target:0,actual:0,achieve:0}, keypack_175_25g:{target:127,actual:0,achieve:0} }
             };
 
-            function getSimulatedOthers(userId) {
-                let factor = 0.9 + (userId.length % 10) / 100;
+            // 模拟新增KPI数据
+            function getNewKpiDefaults() {
                 return {
-                    c_508_take: { target: 100, actual: Math.round(95 * factor), achieve: 0.95 * factor },
-                    c_508_dist: { target: 100, actual: Math.round(88 * factor), achieve: 0.88 * factor },
-                    c_940_take: { target: 100, actual: Math.round(82 * factor), achieve: 0.82 * factor },
-                    c_940_dist: { target: 100, actual: Math.round(79 * factor), achieve: 0.79 * factor },
-                    perfect_osa: { target: 70, actual: Math.round(45 * factor), achieve: 0.64 * factor },
-                    perfect_facing: { target: 100, actual: Math.round(80 * factor), achieve: 0.8 * factor },
-                    perfect_tcp: { target: 100, actual: Math.round(90 * factor), achieve: 0.9 * factor },
-                    perfect_posm: { target: 100, actual: Math.round(75 * factor), achieve: 0.75 * factor },
-                    perfect_rq: { target: 100, actual: Math.round(60 * factor), achieve: 0.6 * factor },
-                    clear_action: { target: 100, actual: Math.round(105 * factor), achieve: 1.05 * factor },
-                    clear_coverage: { target: 100, actual: Math.round(78 * factor), achieve: 0.78 * factor },
-                    dove_launch: { target: 100, actual: Math.round(48 * factor), achieve: 0.48 * factor },
-                    vsl_listing: { target: 100, actual: Math.round(91 * factor), achieve: 0.91 * factor },
-                    vsl_image: { target: 30, actual: Math.round(8 * factor), achieve: 0.27 * factor }
+                    bw_niv: { target: 500, actual: 320, achieve: 0.64 },
+                    pc_niv: { target: 400, actual: 280, achieve: 0.70 },
+                    bw_secondary: { target: 600, actual: 400, achieve: 0.67 },
+                    pc_secondary: { target: 500, actual: 350, achieve: 0.70 },
+                    bw_fifa_ppl: { target: 200, actual: 150, achieve: 0.75 },
+                    pc_fifa_shower: { target: 180, actual: 120, achieve: 0.67 },
+                    clear_940: { target: 100, actual: 55, achieve: 0.55 },
+                    clear_650: { target: 200, actual: 180, achieve: 0.90 },
+                    clear_175_25: { target: 300, actual: 210, achieve: 0.70 },
+                    bubble_700: { target: 150, actual: 90, achieve: 0.60 },
+                    fu_700: { target: 120, actual: 80, achieve: 0.67 },
+                    fruit_milk: { target: 100, actual: 60, achieve: 0.60 },
+                    vsl_listing: { target: 100, actual: 91, achieve: 0.91 },
+                    vsl_image: { target: 30, actual: 8, achieve: 0.27 }
                 };
             }
 
             function generateAct(userId) {
-                return { ...(realData[userId] || {}), ...getSimulatedOthers(userId) };
+                const real = realData[userId] || {};
+                const defaults = getNewKpiDefaults();
+                // 合并原有数据和新增KPI默认值，保留原有数据优先
+                const merged = { ...defaults, ...real };
+                return merged;
             }
 
             function getGroupAchieve(repId, group) {
@@ -282,7 +304,6 @@
                         fields[g.groupId + '_方案'] = store.solution || '';
                     });
 
-                    // 查找已有记录
                     const query = API_BASE + '?filterByFormula=' + encodeURIComponent(`AND({姓名}="${repId}",{周次}="${CURRENT_WEEK}")`);
                     const existingResp = await fetch(query, {
                         headers: { 'Authorization': `Bearer ${VIKA_TOKEN}` }
@@ -291,56 +312,28 @@
                     const existingRecords = existingData.success ? existingData.data.records : [];
 
                     if (existingRecords.length > 0) {
-                        // 更新已有记录 —— 用PATCH方法，必须指定recordId
                         const recordId = existingRecords[0].recordId;
-                        const updateBody = {
-                            records: [{
-                                recordId: recordId,
-                                fields: fields
-                            }]
-                        };
+                        const updateBody = { records: [{ recordId: recordId, fields: fields }] };
                         const updateResp = await fetch(API_BASE + '?fieldKey=name', {
                             method: 'PATCH',
-                            headers: {
-                                'Authorization': `Bearer ${VIKA_TOKEN}`,
-                                'Content-Type': 'application/json'
-                            },
+                            headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type': 'application/json' },
                             body: JSON.stringify(updateBody)
                         });
                         const updateResult = await updateResp.json();
-                        if (!updateResult.success) {
-                            console.error('更新失败:', updateResult);
-                            throw new Error('更新失败');
-                        }
+                        if (!updateResult.success) { console.error('更新失败:', updateResult); throw new Error('更新失败'); }
                     } else {
-                        // 新建记录
-                        const createBody = {
-                            records: [{
-                                fields: fields
-                            }]
-                        };
+                        const createBody = { records: [{ fields: fields }] };
                         const createResp = await fetch(API_BASE + '?fieldKey=name', {
                             method: 'POST',
-                            headers: {
-                                'Authorization': `Bearer ${VIKA_TOKEN}`,
-                                'Content-Type': 'application/json'
-                            },
+                            headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type': 'application/json' },
                             body: JSON.stringify(createBody)
                         });
                         const createResult = await createResp.json();
-                        if (!createResult.success) {
-                            console.error('创建失败:', createResult);
-                            throw new Error('创建失败');
-                        }
+                        if (!createResult.success) { console.error('创建失败:', createResult); throw new Error('创建失败'); }
                     }
 
-                    if (markSubmitted) {
-                        submitStatus[repId] = true;
-                        saveStatus.textContent = '✅ 已提交至云端';
-                    } else {
-                        submitStatus[repId] = false;
-                        saveStatus.textContent = '💾 已暂存至云端';
-                    }
+                    if (markSubmitted) { submitStatus[repId] = true; saveStatus.textContent = '✅ 已提交至云端'; }
+                    else { submitStatus[repId] = false; saveStatus.textContent = '💾 已暂存至云端'; }
                 } catch (err) {
                     console.error('保存失败:', err);
                     saveStatus.textContent = '⚠️ 云端保存失败，请重试';
@@ -352,62 +345,78 @@
                 const rep = REPS.find(r => r.id === repId) || ALL_USERS.find(u => u.id === repId);
                 const store = issueStore[repId] || {};
                 let html = '';
-                html += '<div class="akdm-overview-layout">';
-                html += '<div class="clear-block"><div class="block-title" style="color:#1e88e5;">清扬增长 +10%</div><div class="ring-grid">';
-                level3Categories[0].groups.forEach(g => {
-                    if (g.noData) return;
-                    const ach = getGroupAchieve(repId, g);
-                    html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
-                });
-                html += '</div></div><div class="right-blocks">';
-                const doveCat = level3Categories[1];
-                html += `<div class="dove-block"><div class="block-title" style="color:#2e9a6e;">多芬 Dream & Debeers</div><div class="ring-grid">`;
-                doveCat.groups.forEach(g => {
+
+                // 清扬板块：业绩追踪 + 执行追踪
+                html += '<h2 style="color:#1e88e5; margin-bottom:16px;">清扬增长 +10%</h2>';
+                // 业绩追踪
+                html += '<div class="clear-block" style="margin-bottom:24px;"><div class="block-title">📈 业绩追踪</div><div class="ring-grid">';
+                performanceGroups.forEach(g => {
                     const ach = getGroupAchieve(repId, g);
                     html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
                 });
                 html += '</div></div>';
-                const vslCat = level3Categories[2];
-                html += `<div class="vsl-block"><div class="block-title" style="color:#8e44ad;">VSL 夏季增量</div><div class="ring-grid">`;
-                vslCat.groups.forEach(g => {
+
+                // 执行追踪
+                html += '<div class="clear-block" style="margin-bottom:24px;"><div class="block-title">⚙️ 执行追踪</div><div class="ring-grid">';
+                executionGroups.forEach(g => {
+                    if (g.noData) return; // 无数据的组不显示环形图
                     const ach = getGroupAchieve(repId, g);
                     html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
                 });
-                html += '</div></div></div></div>';
+                html += '</div></div>';
 
+                // 多芬和VSL
+                html += '<div class="right-blocks">';
+                html += '<div class="dove-block"><div class="block-title" style="color:#2e9a6e;">多芬 Dream & Debeers</div><div class="ring-grid">';
+                doveGroups.forEach(g => {
+                    const ach = getGroupAchieve(repId, g);
+                    html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
+                });
+                html += '</div></div>';
+                html += '<div class="vsl-block"><div class="block-title" style="color:#8e44ad;">VSL 夏季增量</div><div class="ring-grid">';
+                vslGroups.forEach(g => {
+                    const ach = getGroupAchieve(repId, g);
+                    html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
+                });
+                html += '</div></div></div>';
+
+                // 未填写提醒
                 const missing = getMissingGroups(repId);
                 if (missing.length > 0) {
                     html += `<div class="reminder-card"><span style="font-weight:600;color:#a15813;">⚠️ 以下指标尚未填写，点击跳转：</span>`;
-                    missing.forEach(mg => {
-                        html += `<span class="reminder-badge" data-groupid="${mg.groupId}">${mg.groupName}</span>`;
-                    });
+                    missing.forEach(mg => html += `<span class="reminder-badge" data-groupid="${mg.groupId}">${mg.groupName}</span>`);
                     html += `</div>`;
                 }
 
+                // 详细填写区
                 html += '<h3 style="margin:20px 0 12px;">📝 问题与方案</h3>';
-                level3Categories.forEach(l3 => {
-                    l3.groups.forEach(g => {
-                        const gd = store[g.groupId] || { issue: '', solution: '' };
-                        html += `<div class="group-detail-card" id="${g.groupId}"><div class="group-detail-header" style="border-left-color: ${l3.color};">${g.groupName}</div>`;
-                        if (!g.noData) {
-                            html += '<div class="sub-items-row">';
-                            const data = generateAct(repId);
-                            g.kpis.forEach(k => {
-                                const kd = data[k.id] || { target: 100, actual: 0, achieve: 0 };
-                                const achieve = Math.round(kd.achieve * 100);
-                                html += `<div class="sub-item"><span class="sub-item-name">${k.name}</span><div class="progress-container"><span class="progress-label">目标 ${kd.target.toFixed(0)}</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${Math.min(achieve,100)}%; background:${l3.color};"></div></div><span class="progress-value">达成 ${kd.actual.toFixed(0)} (${achieve}%)</span></div></div>`;
-                            });
-                            html += '</div>';
-                        }
-                        html += `<textarea class="group-textarea-box" data-groupid="${g.groupId}" placeholder="请填写问题及改进方案">${gd.issue ? gd.issue + '\n\n---改进方案---\n' + gd.solution : ''}</textarea></div>`;
-                    });
+                [...performanceGroups, ...executionGroups, ...doveGroups, ...vslGroups].forEach(g => {
+                    const gd = store[g.groupId] || { issue: '', solution: '' };
+                    const color = doveGroups.includes(g) ? '#2e9a6e' : (vslGroups.includes(g) ? '#8e44ad' : '#1e88e5');
+                    html += `<div class="group-detail-card" id="${g.groupId}"><div class="group-detail-header" style="border-left-color: ${color};">${g.groupName}</div>`;
+                    if (!g.noData) {
+                        html += '<div class="sub-items-row">';
+                        const data = generateAct(repId);
+                        g.kpis.forEach(k => {
+                            const kd = data[k.id] || { target: 100, actual: 0, achieve: 0 };
+                            const achieve = Math.round(kd.achieve * 100);
+                            html += `<div class="sub-item"><span class="sub-item-name">${k.name}</span><div class="progress-container"><span class="progress-label">目标 ${kd.target.toFixed(0)}</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${Math.min(achieve,100)}%; background:${color};"></div></div><span class="progress-value">达成 ${kd.actual.toFixed(0)} (${achieve}%)</span></div></div>`;
+                        });
+                        html += '</div>';
+                    }
+                    html += `<textarea class="group-textarea-box" data-groupid="${g.groupId}" placeholder="请填写问题及改进方案">${gd.issue ? gd.issue + '\n\n---改进方案---\n' + gd.solution : ''}</textarea></div>`;
                 });
+
                 dynamicContent.innerHTML = html;
 
+                // 绘制环形图
                 allGroups.forEach(g => {
                     if (g.noData) return;
                     const c = document.getElementById(`ring_${repId}_${g.groupId}`);
-                    if (c) drawRing(c.getContext('2d'), getGroupAchieve(repId, g).achieve, level3Categories.find(l => l.groups.some(gg => gg.groupId === g.groupId)).color, g.groupName);
+                    if (c) {
+                        const color = doveGroups.includes(g) ? '#2e9a6e' : (vslGroups.includes(g) ? '#8e44ad' : '#1e88e5');
+                        drawRing(c.getContext('2d'), getGroupAchieve(repId, g).achieve, color, g.groupName);
+                    }
                 });
 
                 document.querySelectorAll('.reminder-badge').forEach(badge => {
@@ -605,7 +614,7 @@
 
             function getCurrentUser() { return ALL_USERS.find(u => u.id === currentUserId); }
 
-            // 初始化：先从维格表加载数据
+            // 初始化
             async function init() {
                 saveStatus.textContent = '💾 正在加载云端数据...';
                 await loadDataFromVika();
