@@ -293,20 +293,47 @@
                     const existingRecords = existingData.success ? existingData.data.records : [];
 
                     if (existingRecords.length > 0) {
-                        // 更新
+                        // 更新已有记录 —— 用PATCH方法，必须指定recordId
                         const recordId = existingRecords[0].recordId;
-                        await fetch(API_BASE + '?fieldKey=name', {
+                        const updateBody = {
+                            records: [{
+                                recordId: recordId,
+                                fields: fields
+                            }]
+                        };
+                        const updateResp = await fetch(API_BASE + '?fieldKey=name', {
                             method: 'PATCH',
-                            headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ records: [{ recordId: recordId, fields: fields }] })
+                            headers: {
+                                'Authorization': `Bearer ${VIKA_TOKEN}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(updateBody)
                         });
+                        const updateResult = await updateResp.json();
+                        if (!updateResult.success) {
+                            console.error('更新失败:', updateResult);
+                            throw new Error('更新失败');
+                        }
                     } else {
-                        // 新建
-                        await fetch(API_BASE + '?fieldKey=name', {
+                        // 新建记录
+                        const createBody = {
+                            records: [{
+                                fields: fields
+                            }]
+                        };
+                        const createResp = await fetch(API_BASE + '?fieldKey=name', {
                             method: 'POST',
-                            headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ records: [{ fields: fields }] })
+                            headers: {
+                                'Authorization': `Bearer ${VIKA_TOKEN}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(createBody)
                         });
+                        const createResult = await createResp.json();
+                        if (!createResult.success) {
+                            console.error('创建失败:', createResult);
+                            throw new Error('创建失败');
+                        }
                     }
 
                     if (markSubmitted) {
