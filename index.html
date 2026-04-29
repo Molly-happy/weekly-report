@@ -25,15 +25,14 @@
         .bw-pc-label { position: absolute; top: -14px; left: 20px; background: white; padding: 2px 14px; border-radius: 20px; font-weight: 700; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
         .bw-pc-label.bw { color: #1e6ec5; border: 1px solid #a0c4f0; }
         .bw-pc-label.pc { color: #d32f2f; border: 1px solid #f0a0a0; }
-        .perf-card { background: rgba(255,255,255,0.7); border-radius: 16px; padding: 12px 8px 8px; margin-bottom: 12px; }
-        .perf-card-title { font-weight: 600; font-size: 13px; margin-bottom: 8px; text-align: center; color: #1f4162; }
-        .vertical-row { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+        .metric-group { margin-bottom: 16px; }
+        .metric-group-title { font-weight: 600; font-size: 13px; margin-bottom: 8px; color: #1f4162; text-align: center; }
         .horizontal-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
         .micro-ring-item { display: flex; flex-direction: column; align-items: center; width: 85px; text-align: center; }
         .micro-ring-canvas { width: 60px!important; height: 60px!important; }
         .micro-ring-name { font-size: 10px; font-weight: 600; margin-top: 4px; color: #1f4162; line-height: 1.2; }
 
-        .exec-row { display: flex; gap: 20px; flex-wrap: wrap; }
+        .exec-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
         .exec-block { flex: 1 1 300px; background: white; border-radius: 24px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 1px solid #e0e8f5; }
         .exec-block-title { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: #5e3a8c; text-align: center; }
         .exec-sub-row { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -254,28 +253,29 @@
 
         html += '<div class="section-block"><div class="big-title" style="color:#1e88e5; border-color:#1e88e5;">📈 业绩追踪</div>';
         html += '<div class="bw-pc-row">';
+        // BW
         html += '<div class="bw-pc-col bw"><span class="bw-pc-label bw">BW</span>';
-        for (let i = 0; i < 3; i++) {
-            html += '<div class="perf-card"><div class="perf-card-title">' + ['一级销量','二级销量','新品PPL'][i] + '</div><div class="vertical-row">';
-            const kd = getKpi(repId, bwSales[i].id);
-            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${bwSales[i].id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${bwSales[i].name}</div></div>`;
-            html += '</div></div>';
-        }
-        html += '<div class="perf-card"><div class="perf-card-title">Key Pack</div><div class="horizontal-row">';
+        html += '<div class="metric-group"><div class="metric-group-title">一级销量 / 二级销量 / 新品PPL</div><div class="horizontal-row">';
+        bwSales.forEach(k => {
+            const kd = getKpi(repId, k.id);
+            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`;
+        });
+        html += '</div></div>';
+        html += '<div class="metric-group"><div class="metric-group-title">Key Pack</div><div class="horizontal-row">';
         bwKeyPack.forEach(k => {
             const kd = getKpi(repId, k.id);
             html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`;
         });
         html += '</div></div></div>';
-
+        // PC
         html += '<div class="bw-pc-col pc"><span class="bw-pc-label pc">PC</span>';
-        for (let i = 0; i < 3; i++) {
-            html += '<div class="perf-card"><div class="perf-card-title">' + ['一级销量','二级销量','新品PPL'][i] + '</div><div class="vertical-row">';
-            const kd = getKpi(repId, pcSales[i].id);
-            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${pcSales[i].id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${pcSales[i].name}</div></div>`;
-            html += '</div></div>';
-        }
-        html += '<div class="perf-card"><div class="perf-card-title">Key Pack</div><div class="horizontal-row">';
+        html += '<div class="metric-group"><div class="metric-group-title">一级销量 / 二级销量 / 新品PPL</div><div class="horizontal-row">';
+        pcSales.forEach(k => {
+            const kd = getKpi(repId, k.id);
+            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`;
+        });
+        html += '</div></div>';
+        html += '<div class="metric-group"><div class="metric-group-title">Key Pack</div><div class="horizontal-row">';
         pcKeyPack.forEach(k => {
             const kd = getKpi(repId, k.id);
             html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`;
@@ -283,24 +283,28 @@
         html += '</div></div></div>';
         html += '</div></div>';
 
+        // 执行追踪
         html += '<div class="section-block"><div class="big-title" style="color:#8e44ad; border-color:#8e44ad;">⚙️ 执行追踪</div>';
-        html += '<div class="exec-row"><div class="exec-block"><div class="exec-block-title">大店执行</div>';
+        html += '<div class="exec-row">';
+        // 大店执行
+        html += '<div class="exec-block"><div class="exec-block-title">大店执行</div>';
         html += '<div class="exec-sub-col bw" style="margin-bottom:12px;"><div class="exec-sub-label">BW</div><div class="horizontal-row">';
         execBWStore.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
         html += '</div></div>';
         html += '<div class="exec-sub-col pc"><div class="exec-sub-label">PC</div><div class="horizontal-row">';
         execPCStore.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
-        html += '</div></div></div></div>';
-
+        html += '</div></div></div>';
+        // 小店执行
         html += '<div class="exec-block"><div class="exec-block-title">小店执行-AS</div>';
         html += '<div class="exec-sub-col bw" style="margin-bottom:12px;"><div class="exec-sub-label">BW Hair-季活</div><div class="horizontal-row">';
         execSmallBW.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
         html += '</div></div>';
         html += '<div class="exec-sub-col pc"><div class="exec-sub-label">PC-季活</div><div class="horizontal-row">';
         execSmallPC.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
-        html += '</div></div></div></div>';
-
-        html += '<div class="exec-row" style="margin-top:20px;"><div class="exec-block"><div class="exec-block-title">新兴渠道</div><div class="horizontal-row">';
+        html += '</div></div></div>';
+        html += '</div>';
+        // 新兴渠道
+        html += '<div class="exec-row"><div class="exec-block"><div class="exec-block-title">新兴渠道</div><div class="horizontal-row">';
         execNewChannel.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
         html += '</div></div></div></div>';
 
