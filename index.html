@@ -10,620 +10,455 @@
         .container { max-width: 1440px; margin: 0 auto; }
         .header h1 { font-size: 28px; font-weight: 700; color: #0a1e3c; display: flex; align-items: center; gap: 16px; }
         .brand-badge { background: #003399; color: white; padding: 6px 16px; border-radius: 40px; font-size: 14px; }
-        .subhead { color: #34597a; margin-top: 8px; border-left: 4px solid #1e88e5; padding-left: 18px; background: #e9f0fa; border-radius: 0 12px 12px 0; }
         .user-card { background: white; border-radius: 24px; padding: 20px 28px; margin: 24px 0; display: flex; align-items: center; gap: 24px; box-shadow: 0 6px 14px rgba(0,0,0,0.03); border: 1px solid #eef2f8; flex-wrap: wrap; }
         .user-select { padding: 12px 24px; border-radius: 48px; border: 1.5px solid #d0dae8; font-size: 16px; min-width: 260px; }
         .role-badge { background: #eef3fc; padding: 8px 20px; border-radius: 60px; font-size: 15px; }
         .save-indicator { background: #e3f7e7; color: #1e7b48; padding: 8px 22px; border-radius: 60px; margin-left: auto; font-size: 14px; }
-        .akdm-overview-layout { display: flex; gap: 24px; margin-bottom: 28px; }
-        .clear-block { flex: 3; background: #e6f0ff; border-radius: 28px; padding: 24px; border: 1px solid #c5d9f5; }
-        .right-blocks { flex: 2; display: flex; flex-direction: column; gap: 16px; }
-        .dove-block { background: #e3f5eb; border-radius: 28px; padding: 20px; border: 1px solid #b8d9c5; }
-        .vsl-block { background: #f3eafa; border-radius: 28px; padding: 20px; border: 1px solid #d2c4e9; }
-        .block-title { font-weight: 700; font-size: 18px; margin-bottom: 20px; color: #0a1e3c; }
-        .ring-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-        .ring-card-h { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.75); border-radius: 20px; padding: 12px 14px; }
-        .ring-canvas-sm { width: 70px; height: 70px; }
-        .ring-info { font-size: 13px; line-height: 1.5; }
-        .ring-info strong { font-size: 16px; display: block; color: #0a1e3c; }
-        .ring-info span { color: #34597a; }
+
+        .section-block { margin-bottom: 32px; }
+        .big-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 3px solid; display: inline-block; }
+
+        .bw-pc-row { display: flex; gap: 20px; margin-bottom: 24px; position: relative; }
+        .bw-pc-col { flex: 1; border-radius: 24px; padding: 20px 16px 12px; position: relative; }
+        .bw-pc-col.bw { background: #d4e6ff; border: 1px solid #a0c4f0; }
+        .bw-pc-col.pc { background: #ffe6e6; border: 1px solid #f0a0a0; }
+        .bw-pc-label { position: absolute; top: -14px; left: 20px; background: white; padding: 2px 14px; border-radius: 20px; font-weight: 700; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .bw-pc-label.bw { color: #1e6ec5; border: 1px solid #a0c4f0; }
+        .bw-pc-label.pc { color: #d32f2f; border: 1px solid #f0a0a0; }
+        .perf-card { background: rgba(255,255,255,0.7); border-radius: 16px; padding: 12px 8px 8px; margin-bottom: 12px; }
+        .perf-card-title { font-weight: 600; font-size: 13px; margin-bottom: 8px; text-align: center; color: #1f4162; }
+        .vertical-row { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+        .horizontal-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .micro-ring-item { display: flex; flex-direction: column; align-items: center; width: 85px; text-align: center; }
+        .micro-ring-canvas { width: 60px!important; height: 60px!important; }
+        .micro-ring-name { font-size: 10px; font-weight: 600; margin-top: 4px; color: #1f4162; line-height: 1.2; }
+
+        .exec-row { display: flex; gap: 20px; flex-wrap: wrap; }
+        .exec-block { flex: 1 1 300px; background: white; border-radius: 24px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 1px solid #e0e8f5; }
+        .exec-block-title { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: #5e3a8c; text-align: center; }
+        .exec-sub-row { display: flex; gap: 16px; flex-wrap: wrap; }
+        .exec-sub-col { flex: 1; min-width: 140px; padding: 12px; border-radius: 16px; }
+        .exec-sub-col.bw { background: #e6f0ff; }
+        .exec-sub-col.pc { background: #ffe6e6; }
+        .exec-sub-label { font-weight: 600; font-size: 13px; margin-bottom: 8px; color: #1f4162; }
+
         .group-detail-card { background: white; border-radius: 24px; padding: 22px 24px; margin-bottom: 20px; border: 1px solid #eef2f8; }
-        .group-detail-header { font-weight: 700; font-size: 18px; margin-bottom: 16px; padding-left: 14px; }
+        .group-detail-header { font-weight: 700; font-size: 18px; margin-bottom: 16px; padding-left: 14px; border-left: 5px solid; }
         .sub-items-row { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
         .sub-item { display: flex; align-items: center; gap: 12px; }
-        .sub-item-name { font-weight: 600; min-width: 90px; color: #1f4162; }
+        .sub-item-name { font-weight: 600; min-width: 100px; color: #1f4162; }
         .progress-container { flex: 1; display: flex; align-items: center; gap: 14px; }
         .progress-label { font-weight: 500; color: #2d4b70; min-width: 80px; text-align: right; font-size: 13px; }
         .progress-bar-bg { flex: 1; height: 18px; background: #e6ecf5; border-radius: 30px; overflow: hidden; }
         .progress-bar-fill { height: 18px; border-radius: 30px; width: 0%; }
         .progress-value { font-weight: 600; min-width: 110px; font-size: 13px; color: #0a1e3c; }
-        .group-textarea-box { width: 100%; padding: 12px; border-radius: 18px; border: 1.5px solid #d7e0ea; resize: vertical; min-height: 100px; font-size: 14px; }
+        .group-textarea-box { width: 100%; padding: 12px; border-radius: 18px; border: 1.5px solid #d7e0ea; resize: vertical; min-height: 100px; font-size: 14px; margin-bottom: 10px; }
         .freeze-wrapper { overflow-x: auto; width: 100%; }
         .data-table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: 14px; }
         .data-table th,.data-table td { padding: 12px 14px; border-bottom: 1px solid #eef3f9; white-space: nowrap; background: white; }
         .data-table th { background: #f7faff; font-weight: 600; color: #1f4162; }
-        .data-table th:first-child,.data-table td:first-child { position: sticky; left: 0; z-index: 2; box-shadow: 2px 0 5px -2px rgba(0,0,0,0.05); }
-        .data-table th:first-child { background: #f7faff; z-index: 3; }
-        .data-table th:nth-child(2),.data-table td:nth-child(2) { position: sticky; left: 130px; z-index: 2; }
-        .data-table th:nth-child(2) { background: #f7faff; z-index: 3; }
+        .data-table th:first-child,.data-table td:first-child { position: sticky; left: 0; z-index: 2; }
         .team-summary td,.north-summary td { background: #c8d9f0 !important; font-weight: 800; }
-        .north-summary td { background: #d4e2f5 !important; }
         .progress-wrapper { display: flex; align-items: center; gap: 8px; }
         .progress-track { background: #dfe7f0; height: 10px; width: 70px; border-radius: 20px; }
         .progress-fill { background: #1e88e5; height: 10px; border-radius: 20px; }
         .status-badge { padding: 4px 12px; border-radius: 40px; font-weight: 600; font-size: 12px; }
         .status-submitted { background: #dcfce7; color: #0e7640; }
         .status-pending { background: #fee9e7; color: #bc1c1c; }
-        .row-pending td { background: #fffaf5; }
-        .rep-link { color: #1e6ec5; font-weight: 700; cursor: pointer; text-decoration: underline; }
-        .sm-link { color: #1e6ec5; font-weight: 700; cursor: pointer; text-decoration: underline; }
+        .rep-link, .sm-link { color: #1e6ec5; font-weight: 700; cursor: pointer; text-decoration: underline; }
         .toggle-btn { padding: 8px 18px; border-radius: 30px; border: 1.5px solid #1e88e5; background: white; color: #1e88e5; font-weight: 600; cursor: pointer; margin-left: 12px; }
-        .level1-detail { display: flex; flex-direction: column; gap: 4px; }
-        .level1-item { display: flex; align-items: center; gap: 4px; font-size: 12px; }
-        .reminder-card { background: #fff6e5; border-left: 6px solid #e67e22; border-radius: 20px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .reminder-card { background: #fff6e5; border-left: 6px solid #e67e22; border-radius: 20px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
         .reminder-badge { background: #fce4c5; padding: 4px 14px; border-radius: 40px; cursor: pointer; font-size: 13px; }
         .btn { padding: 14px 30px; border-radius: 60px; border: none; cursor: pointer; font-weight: 600; font-size: 15px; background: white; border: 1.5px solid #cbdae8; }
         .btn-primary { background: #003399; color: white; border: none; }
         .btn-draft { background: #f0e68c; border: 1px solid #d4c76a; }
-        .footer-note { margin-top: 24px; color: #637e9b; text-align: right; }
+        .toast { position: fixed; bottom: 30px; right: 30px; background: #2e7d32; color: white; padding: 12px 24px; border-radius: 30px; font-weight: 600; z-index: 999; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; }
+        .toast.show { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🧴 B&W 北区 · 周报追踪 <span class="brand-badge">秋收城市 · 北京/石家庄/保定/沈阳</span></h1>
-            <div class="subhead">联合利华 · 共享版 · 新版KPI结构</div>
-        </div>
-        <div class="user-card">
-            <span class="label-lg">👤 当前身份</span>
-            <select id="userSelect" class="user-select"></select>
-            <span class="role-badge" id="roleDisplay">总监 / SM / AKDM</span>
-            <span class="save-indicator" id="saveStatus">💾 正在加载云端数据...</span>
-        </div>
-        <div id="dynamicContent"></div>
-        <div style="display:flex; gap:18px; justify-content:flex-end; margin-top:28px;" id="actionButtons">
-            <button class="btn btn-outline" id="backToTeamBtn" style="display:none;">⬅ 返回团队视图</button>
-            <button class="btn btn-outline" id="resetToMyDataBtn">↻ 重置输入</button>
-            <button class="btn btn-draft" id="saveDraftBtn" style="display:none;">💾 暂存</button>
-            <button class="btn btn-primary" id="saveAllBtn">✅ 保存并提交</button>
-        </div>
-        <div class="footer-note">* 数据实时存储在维格表 · 所有人打开同一链接即可看到最新内容</div>
+<div class="container">
+    <div class="header">
+        <h1>🧴 B&W 北区 · 周报追踪 <span class="brand-badge">秋收城市 · 北京/石家庄/保定/沈阳</span></h1>
     </div>
+    <div class="user-card">
+        <span>👤 当前身份</span>
+        <select id="userSelect" class="user-select"></select>
+        <span class="role-badge" id="roleDisplay">总监 / SM / AKDM</span>
+        <span class="save-indicator" id="saveStatus">💾 数据已就绪</span>
+    </div>
+    <div id="dynamicContent"></div>
+    <div style="display:flex; gap:18px; justify-content:flex-end; margin-top:28px;">
+        <button class="btn btn-outline" id="backToTeamBtn" style="display:none;">⬅ 返回团队视图</button>
+        <button class="btn btn-outline" id="resetToMyDataBtn">↻ 重置输入</button>
+        <button class="btn btn-draft" id="saveDraftBtn" style="display:none;">💾 暂存</button>
+        <button class="btn btn-primary" id="saveAllBtn">✅ 保存并提交</button>
+    </div>
+</div>
+<div id="toast" class="toast"></div>
 
-    <script>
-        (function() {
-            // ========== 维格表配置 ==========
-            const VIKA_TOKEN = 'uskIMvEmhRlRBpYVH58KEXr';
-            const DATASHEET_ID = 'dstTpNtuPR28Cs5w4S';
-            const API_BASE = `https://api.vika.cn/fusion/v1/datasheets/${DATASHEET_ID}/records`;
-            const CURRENT_WEEK = '2026-W17';
-            // ================================
+<script>
+(function() {
+    const VIKA_TOKEN = 'uskIMvEmhRlRBpYVH58KEXr';
+    const DATASHEET_ID = 'dstTpNtuPR28Cs5w4S';
+    const API_BASE = `https://api.vika.cn/fusion/v1/datasheets/${DATASHEET_ID}/records`;
+    const CURRENT_WEEK = '2026-W17';
 
-            // ---------- 人员架构 ----------
-            const REPS = [
-                { id: 'daiyajuan', name: '戴雅娟', province: '山西省', managerId: 'liuchangan' },
-                { id: 'baoyue', name: '鲍岳', province: '吉林省', managerId: 'tianhe' },
-                { id: 'weitingting', name: '魏亭亭', province: '吉林省', managerId: 'tianhe' },
-                { id: 'guojianfang', name: '郭健方', province: '北京市', managerId: 'songwei' },
-                { id: 'liyong', name: '李勇', province: '北京市', managerId: 'songwei' },
-                { id: 'xinghong', name: '邢洪', province: '北京市', managerId: 'songwei' },
-                { id: 'guoyueqiang', name: '郭跃强', province: '内蒙古', managerId: 'liuchangan' },
-                { id: 'chenjiao', name: '陈姣', province: '河北省', managerId: 'liuchangan' },
-                { id: 'fanxuefeng', name: '范雪峰', province: '河北省', managerId: 'liuchangan' },
-                { id: 'wanglong', name: '王龙', province: '河北省', managerId: 'liuchangan' },
-                { id: 'wangtao', name: '王涛', province: '河北省', managerId: 'liuchangan' },
-                { id: 'yanbo', name: '闫波', province: '河北省', managerId: 'liuchangan' },
-                { id: 'tianye', name: '田野', province: '辽宁省', managerId: 'tianhe' },
-                { id: 'xulinlin', name: '许琳琳', province: '辽宁省', managerId: 'tianhe' },
-                { id: 'gaofeng', name: '高枫', province: '黑龙江', managerId: 'tianhe' },
-                { id: 'ximeiqi', name: '席美琪', province: '黑龙江省', managerId: 'tianhe' },
-                { id: 'fuyang', name: '付洋', province: '天津市', managerId: 'songwei' },
-                { id: 'shaofeihua', name: '邵飞华', province: '北京市', managerId: 'songwei' }
-            ];
-            const MANAGERS = [
-                { id: 'songwei', name: '宋伟', team: '京津团队' },
-                { id: 'liuchangan', name: '刘长安', team: '晋冀蒙团队' },
-                { id: 'tianhe', name: '田贺', team: '东三省团队' }
-            ];
-            const DIRECTOR = { id: 'shenyi', name: '申毅', role: 'director' };
-            const ADMIN = { id: 'admin', name: '管理员', role: 'admin' };
-            const ALL_USERS = [DIRECTOR, ADMIN, ...MANAGERS.map(m => ({ ...m, role: 'manager' })), ...REPS.map(r => ({ ...r, role: 'rep' }))];
+    const REPS = [
+        { id: 'daiyajuan', name: '戴雅娟', province: '山西省', managerId: 'liuchangan' },
+        { id: 'baoyue', name: '鲍岳', province: '吉林省', managerId: 'tianhe' },
+        { id: 'weitingting', name: '魏亭亭', province: '吉林省', managerId: 'tianhe' },
+        { id: 'guojianfang', name: '郭健方', province: '北京市', managerId: 'songwei' },
+        { id: 'liyong', name: '李勇', province: '北京市', managerId: 'songwei' },
+        { id: 'xinghong', name: '邢洪', province: '北京市', managerId: 'songwei' },
+        { id: 'guoyueqiang', name: '郭跃强', province: '内蒙古', managerId: 'liuchangan' },
+        { id: 'chenjiao', name: '陈姣', province: '河北省', managerId: 'liuchangan' },
+        { id: 'fanxuefeng', name: '范雪峰', province: '河北省', managerId: 'liuchangan' },
+        { id: 'wanglong', name: '王龙', province: '河北省', managerId: 'liuchangan' },
+        { id: 'wangtao', name: '王涛', province: '河北省', managerId: 'liuchangan' },
+        { id: 'yanbo', name: '闫波', province: '河北省', managerId: 'liuchangan' },
+        { id: 'tianye', name: '田野', province: '辽宁省', managerId: 'tianhe' },
+        { id: 'xulinlin', name: '许琳琳', province: '辽宁省', managerId: 'tianhe' },
+        { id: 'gaofeng', name: '高枫', province: '黑龙江', managerId: 'tianhe' },
+        { id: 'ximeiqi', name: '席美琪', province: '黑龙江省', managerId: 'tianhe' },
+        { id: 'fuyang', name: '付洋', province: '天津市', managerId: 'songwei' },
+        { id: 'shaofeihua', name: '邵飞华', province: '北京市', managerId: 'songwei' }
+    ];
+    const MANAGERS = [
+        { id: 'songwei', name: '宋伟', team: '京津团队' },
+        { id: 'liuchangan', name: '刘长安', team: '晋冀蒙团队' },
+        { id: 'tianhe', name: '田贺', team: '东三省团队' }
+    ];
+    const DIRECTOR = { id: 'shenyi', name: '申毅', role: 'director' };
+    const ADMIN = { id: 'admin', name: '管理员', role: 'admin' };
+    const ALL_USERS = [DIRECTOR, ADMIN, ...MANAGERS.map(m => ({ ...m, role: 'manager' })), ...REPS.map(r => ({ ...r, role: 'rep' }))];
 
-            let submitStatus = {};
-            REPS.forEach(r => submitStatus[r.id] = false);
-            let currentUserId = 'shenyi';
-            let viewMode = 'director';
-            let viewingSubordinateId = null;
-            let showLevel1 = false;
+    let submitStatus = {};
+    REPS.forEach(r => submitStatus[r.id] = false);
+    let currentUserId = 'shenyi', viewMode = 'director', viewingSubordinateId = null, showLevel1 = false;
 
-            // ========== 新版KPI结构 ==========
-            // 业绩追踪
-            const performanceGroups = [
-                { groupName: '一级销量', groupId: '一级销量', kpis: [{ id: 'bw_niv', name: 'BW NIV' }, { id: 'pc_niv', name: 'PC NIV' }] },
-                { groupName: '二级销量', groupId: '二级销量', kpis: [{ id: 'bw_secondary', name: 'BW 二级销售' }, { id: 'pc_secondary', name: 'PC 二级销售' }] },
-                { groupName: '新品PPL', groupId: '新品PPL', kpis: [{ id: 'bw_fifa_ppl', name: 'BW FIFA PPL' }, { id: 'pc_fifa_shower', name: 'PC清扬FIFA沐浴露' }] },
-                { groupName: 'Key pack拿货', groupId: 'Key pack拿货', kpis: [
-                    { id: 'clear_940', name: 'Clear 940' }, { id: 'clear_650', name: 'Clear 650' }, { id: 'clear_175_25', name: 'Clear 175+25 (12+1)' },
-                    { id: 'bubble_700', name: '气泡700' }, { id: 'fu_700', name: '馥郁700' }, { id: 'fruit_milk', name: '果奶冰柚' }
-                ]}
-            ];
-            // 执行追踪
-            const executionGroups = [
-                { groupName: '大店执行', groupId: '大店执行', noData: true, kpis: [
-                    { id: 'osa', name: 'OSA(TOP20 SKU分销70%)' }, { id: 'facing_posm', name: 'Facing(POSM)执行' },
-                    { id: 'shelf_renew', name: '货架焕新' }, { id: 'pog', name: 'POG' }, { id: 'tcp', name: 'TCP' },
-                    { id: 'standard_activity', name: '标准活动' }, { id: 'rq_plus', name: 'RQ+2' }, { id: 'ice', name: 'ICE' }
-                ]},
-                { groupName: '小店执行-AS', groupId: '小店执行-AS', noData: true, kpis: [
-                    { id: 'quarter_508_hair', name: '季活508g套餐(HAIR)' }, { id: 'new_dist_hair', name: '新增分销奖励(HAIR)' },
-                    { id: 'contract', name: '包场' }, { id: 'eb2b', name: 'EB2B' }, { id: 'quarter_lux_pc', name: '季活LUX套装(PC)' }
-                ]},
-                { groupName: '新兴渠道', groupId: '新兴渠道', noData: true, kpis: [
-                    { id: 'flash_warehouse', name: '闪电仓' }, { id: 'club_customer', name: 'Club客户' }
-                ]}
-            ];
-            // 清扬板块由业绩追踪和执行追踪组成
-            const clearGroups = [...performanceGroups, ...executionGroups];
-            // 多芬和VSL保持不变
-            const doveGroups = [
-                { groupName: '多芬上架开码', groupId: '多芬', kpis: [{ id: 'dove_launch', name: '上架开码' }] }
-            ];
-            const vslGroups = [
-                { groupName: 'VSL夏季线', groupId: 'VSL', kpis: [{ id: 'vsl_listing', name: '夏季开码' }, { id: 'vsl_image', name: '留图30%', target: 30 }] }
-            ];
-            // 所有分组
-            const allGroups = [...clearGroups, ...doveGroups, ...vslGroups];
-            const allKpis = allGroups.flatMap(g => g.kpis);
+    const bwSales = [
+        { id: 'bw_niv', name: 'BW NIV' },
+        { id: 'bw_secondary', name: 'BW 二级销售' },
+        { id: 'bw_fifa_ppl', name: 'BW FIFA PPL' }
+    ];
+    const pcSales = [
+        { id: 'pc_niv', name: 'PC NIV' },
+        { id: 'pc_secondary', name: 'PC 二级销售' },
+        { id: 'pc_fifa_shower', name: 'PC清扬FIFA浴露' }
+    ];
+    const bwKeyPack = [
+        { id: 'clear_940', name: 'Clear 940' },
+        { id: 'clear_650', name: 'Clear 650' },
+        { id: 'clear_175_25', name: 'Clear 175+25' }
+    ];
+    const pcKeyPack = [
+        { id: 'bubble_700', name: '气泡700' },
+        { id: 'fu_700', name: '馥郁700' },
+        { id: 'fruit_milk', name: '果奶冰柚' }
+    ];
+    const execBWStore = [
+        { id: 'bw_osa', name: 'OSA(TOP20 sku)' },
+        { id: 'bw_facing', name: 'Facing(货架焕新)' },
+        { id: 'bw_posm', name: 'POSM(货架焕新)' },
+        { id: 'bw_tcp', name: 'TCP(标准活动)' }
+    ];
+    const execPCStore = [
+        { id: 'pc_osa', name: 'OSA' },
+        { id: 'pc_facing', name: 'Facing(货架焕新)' },
+        { id: 'pc_posm', name: 'POSM*(货架焕新)' },
+        { id: 'pc_tcp', name: 'TCP' }
+    ];
+    const execSmallBW = [{ id: 'bw_hair_quarter', name: 'BW Hair-季活' }];
+    const execSmallPC = [{ id: 'pc_quarter', name: 'PC-季活' }];
+    const execNewChannel = [
+        { id: 'contract', name: '包场' },
+        { id: 'eb2b', name: 'EB2B' },
+        { id: 'flash_warehouse', name: '闪电仓' }
+    ];
 
-            // 真实数据（原有数据保留，新增KPI使用模拟数据）
-            const realData = {
-                daiyajuan: { sales_l1:{target:921,actual:305,achieve:0.33}, sales_l2:{target:924,actual:278,achieve:0.30}, keypack_940g:{target:551,actual:63,achieve:0.11}, keypack_650g:{target:315,actual:466,achieve:1.48}, keypack_508g:{target:199,actual:19,achieve:0.10}, keypack_175g_label:{target:189,actual:464,achieve:2.46}, keypack_175_25g:{target:1575,actual:353,achieve:0.22} },
-                baoyue: { sales_l1:{target:667,actual:615,achieve:0.92}, sales_l2:{target:695,actual:179,achieve:0.26}, keypack_940g:{target:100,actual:81,achieve:0.81}, keypack_650g:{target:128,actual:222,achieve:1.73}, keypack_508g:{target:248,actual:37,achieve:0.15}, keypack_175g_label:{target:364,actual:2181,achieve:5.99}, keypack_175_25g:{target:974,actual:124,achieve:0.13} },
-                weitingting: { sales_l1:{target:622,actual:186,achieve:0.30}, sales_l2:{target:571,actual:241,achieve:0.42}, keypack_940g:{target:305,actual:330,achieve:1.08}, keypack_650g:{target:164,actual:30,achieve:0.18}, keypack_508g:{target:57,actual:0,achieve:0}, keypack_175g_label:{target:0,actual:319,achieve:0}, keypack_175_25g:{target:1481,actual:92,achieve:0.06} },
-                guojianfang: { sales_l1:{target:1724,actual:217,achieve:0.13}, sales_l2:{target:1551,actual:1786,achieve:1.15}, keypack_940g:{target:0,actual:111,achieve:0}, keypack_650g:{target:89,actual:233,achieve:2.62}, keypack_508g:{target:251,actual:0,achieve:0}, keypack_175g_label:{target:8,actual:189,achieve:23.6}, keypack_175_25g:{target:4064,actual:166,achieve:0.04} },
-                liyong: { sales_l1:{target:343,actual:180,achieve:0.53}, sales_l2:{target:648,actual:298,achieve:0.46}, keypack_940g:{target:15,actual:117,achieve:7.8}, keypack_650g:{target:86,actual:153,achieve:1.78}, keypack_508g:{target:155,actual:0,achieve:0}, keypack_175g_label:{target:32,actual:131,achieve:4.09}, keypack_175_25g:{target:866,actual:217,achieve:0.25} },
-                xinghong: { sales_l1:{target:291,actual:157,achieve:0.54}, sales_l2:{target:363,actual:146,achieve:0.40}, keypack_940g:{target:0,actual:17,achieve:0}, keypack_650g:{target:197,actual:350,achieve:1.78}, keypack_508g:{target:111,actual:0,achieve:0}, keypack_175g_label:{target:400,actual:219,achieve:0.55}, keypack_175_25g:{target:184,actual:68,achieve:0.37} },
-                guoyueqiang: { sales_l1:{target:511,actual:151,achieve:0.30}, sales_l2:{target:562,actual:233,achieve:0.41}, keypack_940g:{target:315,actual:54,achieve:0.17}, keypack_650g:{target:160,actual:59,achieve:0.37}, keypack_508g:{target:161,actual:16,achieve:0.10}, keypack_175g_label:{target:19,actual:196,achieve:10.3}, keypack_175_25g:{target:459,actual:95,achieve:0.21} },
-                chenjiao: { sales_l1:{target:1061,actual:181,achieve:0.17}, sales_l2:{target:764,actual:427,achieve:0.56}, keypack_940g:{target:773,actual:60,achieve:0.08}, keypack_650g:{target:577,actual:280,achieve:0.49}, keypack_508g:{target:51,actual:90,achieve:1.76}, keypack_175g_label:{target:18,actual:121,achieve:6.72}, keypack_175_25g:{target:1124,actual:118,achieve:0.11} },
-                fanxuefeng: { sales_l1:{target:480,actual:200,achieve:0.42}, sales_l2:{target:571,actual:156,achieve:0.27}, keypack_940g:{target:228,actual:113,achieve:0.50}, keypack_650g:{target:257,actual:185,achieve:0.72}, keypack_508g:{target:74,actual:26,achieve:0.35}, keypack_175g_label:{target:24,actual:364,achieve:15.2}, keypack_175_25g:{target:833,actual:89,achieve:0.11} },
-                wanglong: { sales_l1:{target:479,actual:151,achieve:0.32}, sales_l2:{target:439,actual:222,achieve:0.51}, keypack_940g:{target:178,actual:132,achieve:0.74}, keypack_650g:{target:239,actual:75,achieve:0.31}, keypack_508g:{target:110,actual:0,achieve:0}, keypack_175g_label:{target:21,actual:124,achieve:5.90}, keypack_175_25g:{target:111,actual:123,achieve:1.11} },
-                wangtao: { sales_l1:{target:1043,actual:438,achieve:0.42}, sales_l2:{target:969,actual:234,achieve:0.24}, keypack_940g:{target:947,actual:0,achieve:0}, keypack_650g:{target:1041,actual:1014,achieve:0.97}, keypack_508g:{target:43,actual:33,achieve:0.77}, keypack_175g_label:{target:33,actual:612,achieve:18.5}, keypack_175_25g:{target:1130,actual:99,achieve:0.09} },
-                yanbo: { sales_l1:{target:426,actual:95,achieve:0.22}, sales_l2:{target:631,actual:181,achieve:0.29}, keypack_940g:{target:386,actual:72,achieve:0.19}, keypack_650g:{target:48,actual:32,achieve:0.67}, keypack_508g:{target:98,actual:43,achieve:0.44}, keypack_175g_label:{target:185,actual:35,achieve:0.19}, keypack_175_25g:{target:403,actual:104,achieve:0.26} },
-                tianye: { sales_l1:{target:1127,actual:175,achieve:0.16}, sales_l2:{target:1234,actual:209,achieve:0.17}, keypack_940g:{target:445,actual:306,achieve:0.69}, keypack_650g:{target:1145,actual:36,achieve:0.03}, keypack_508g:{target:156,actual:23,achieve:0.15}, keypack_175g_label:{target:107,actual:44,achieve:0.41}, keypack_175_25g:{target:1048,actual:143,achieve:0.14} },
-                xulinlin: { sales_l1:{target:533,actual:155,achieve:0.29}, sales_l2:{target:384,actual:102,achieve:0.27}, keypack_940g:{target:78,actual:4,achieve:0.05}, keypack_650g:{target:1473,actual:169,achieve:0.11}, keypack_508g:{target:95,actual:15,achieve:0.16}, keypack_175g_label:{target:8,actual:304,achieve:38.0}, keypack_175_25g:{target:483,actual:69,achieve:0.14} },
-                gaofeng: { sales_l1:{target:552,actual:59,achieve:0.11}, sales_l2:{target:441,actual:205,achieve:0.47}, keypack_940g:{target:33,actual:8,achieve:0.24}, keypack_650g:{target:600,actual:27,achieve:0.05}, keypack_508g:{target:32,actual:0,achieve:0}, keypack_175g_label:{target:0,actual:217,achieve:0}, keypack_175_25g:{target:1186,actual:118,achieve:0.10} },
-                ximeiqi: { sales_l1:{target:1190,actual:314,achieve:0.26}, sales_l2:{target:1247,actual:296,achieve:0.24}, keypack_940g:{target:293,actual:108,achieve:0.37}, keypack_650g:{target:1517,actual:176,achieve:0.12}, keypack_508g:{target:419,actual:2,achieve:0.00}, keypack_175g_label:{target:2,actual:445,achieve:222}, keypack_175_25g:{target:1173,actual:222,achieve:0.19} },
-                fuyang: { sales_l1:{target:314,actual:123,achieve:0.39}, sales_l2:{target:300,actual:77,achieve:0.26}, keypack_940g:{target:13,actual:9,achieve:0.69}, keypack_650g:{target:16,actual:51,achieve:3.19}, keypack_508g:{target:322,actual:0,achieve:0}, keypack_175g_label:{target:65,actual:24,achieve:0.37}, keypack_175_25g:{target:210,actual:91,achieve:0.43} },
-                shaofeihua: { sales_l1:{target:759,actual:181,achieve:0.24}, sales_l2:{target:875,actual:322,achieve:0.37}, keypack_940g:{target:0,actual:0,achieve:0}, keypack_650g:{target:0,actual:0,achieve:0}, keypack_508g:{target:0,actual:0,achieve:0}, keypack_175g_label:{target:0,actual:0,achieve:0}, keypack_175_25g:{target:127,actual:0,achieve:0} }
-            };
+    const allGroupsForForm = [
+        { groupName: '一级销量', groupId: '一级销量', color: '#1e88e5', kpis: [bwSales[0], pcSales[0]] },
+        { groupName: '二级销量', groupId: '二级销量', color: '#1e88e5', kpis: [bwSales[1], pcSales[1]] },
+        { groupName: '新品PPL', groupId: '新品PPL', color: '#1e88e5', kpis: [bwSales[2], pcSales[2]] },
+        { groupName: 'Key Pack拿货', groupId: 'KeyPack拿货', color: '#1e88e5', kpis: [...bwKeyPack, ...pcKeyPack] },
+        { groupName: '大店执行', groupId: '大店执行', color: '#8e44ad', noData: true, kpis: [...execBWStore, ...execPCStore] },
+        { groupName: '小店执行-AS', groupId: '小店执行-AS', color: '#8e44ad', noData: true, kpis: [...execSmallBW, ...execSmallPC] },
+        { groupName: '新兴渠道', groupId: '新兴渠道', color: '#8e44ad', noData: true, kpis: execNewChannel }
+    ];
 
-            // 模拟新增KPI数据
-            function getNewKpiDefaults() {
-                return {
-                    bw_niv: { target: 500, actual: 320, achieve: 0.64 },
-                    pc_niv: { target: 400, actual: 280, achieve: 0.70 },
-                    bw_secondary: { target: 600, actual: 400, achieve: 0.67 },
-                    pc_secondary: { target: 500, actual: 350, achieve: 0.70 },
-                    bw_fifa_ppl: { target: 200, actual: 150, achieve: 0.75 },
-                    pc_fifa_shower: { target: 180, actual: 120, achieve: 0.67 },
-                    clear_940: { target: 100, actual: 55, achieve: 0.55 },
-                    clear_650: { target: 200, actual: 180, achieve: 0.90 },
-                    clear_175_25: { target: 300, actual: 210, achieve: 0.70 },
-                    bubble_700: { target: 150, actual: 90, achieve: 0.60 },
-                    fu_700: { target: 120, actual: 80, achieve: 0.67 },
-                    fruit_milk: { target: 100, actual: 60, achieve: 0.60 },
-                    vsl_listing: { target: 100, actual: 91, achieve: 0.91 },
-                    vsl_image: { target: 30, actual: 8, achieve: 0.27 }
-                };
-            }
+    function getDefaultData() {
+        const d = {};
+        [...bwSales, ...pcSales, ...bwKeyPack, ...pcKeyPack, ...execBWStore, ...execPCStore, ...execSmallBW, ...execSmallPC, ...execNewChannel].forEach(k => {
+            d[k.id] = { target: 100, actual: Math.floor(Math.random()*60+40), achieve: Math.random()*0.6+0.4 };
+        });
+        return d;
+    }
+    let kpiData = getDefaultData();
+    function generateAct() { return kpiData; }
+    function getKpi(repId, kpiId) { return generateAct()[kpiId] || { target:100, actual:0, achieve:0 }; }
+    function getGroupAchieve(repId, group) { if (group.noData) return { target:0, actual:0, achieve:0 }; const data = generateAct(); let t=0,a=0; group.kpis.forEach(k => { const d = data[k.id] || {target:100,actual:0}; t+=d.target; a+=d.actual; }); return {target:t, actual:a, achieve:t>0?a/t:0}; }
 
-            function generateAct(userId) {
-                const real = realData[userId] || {};
-                const defaults = getNewKpiDefaults();
-                // 合并原有数据和新增KPI默认值，保留原有数据优先
-                const merged = { ...defaults, ...real };
-                return merged;
-            }
+    let issueStore = {}; REPS.forEach(r => issueStore[r.id] = {});
 
-            function getGroupAchieve(repId, group) {
-                if (group.noData) return { target: 0, actual: 0, achieve: 0 };
-                const data = generateAct(repId);
-                let t = 0, a = 0;
-                group.kpis.forEach(k => {
-                    const d = data[k.id] || { target: 100, actual: 0 };
-                    t += d.target;
-                    a += d.actual;
-                });
-                return { target: t, actual: a, achieve: t > 0 ? a / t : 0 };
-            }
+    function drawMicroRing(ctx, percent, color) {
+        const cx=30, cy=30, r=25;
+        ctx.clearRect(0,0,60,60);
+        ctx.beginPath(); ctx.arc(cx,cy,r,0,2*Math.PI); ctx.strokeStyle='#e6ecf5'; ctx.lineWidth=5; ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx,cy,r,-0.5*Math.PI,-0.5*Math.PI+2*Math.PI*Math.min(percent,1)); ctx.strokeStyle=color; ctx.lineWidth=5; ctx.lineCap='round'; ctx.stroke();
+        ctx.font='bold 12px Inter'; ctx.fillStyle='#0a1e3c'; ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.fillText(Math.round(percent*100)+'%', cx, cy);
+    }
+    function showToast(text, bg='#2e7d32') { const t=document.getElementById('toast'); t.textContent=text; t.style.background=bg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
 
-            // 全局填写数据存储（从维格表加载）
-            let issueStore = {};
-            REPS.forEach(r => { issueStore[r.id] = {}; });
-
-            // 绘图函数
-            function drawRing(ctx, percent, color, groupName) {
-                const cx = 35, cy = 35, r = 28;
-                ctx.clearRect(0, 0, 70, 70);
-                ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI); ctx.strokeStyle = '#e6ecf5'; ctx.lineWidth = 6; ctx.stroke();
-                ctx.beginPath(); ctx.arc(cx, cy, r, -0.5 * Math.PI, -0.5 * Math.PI + 2 * Math.PI * Math.min(percent, 1)); ctx.strokeStyle = color; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.stroke();
-                let fs = 10; if (groupName.length > 6) fs = 8; if (groupName.length > 8) fs = 7;
-                ctx.font = `bold ${fs}px Inter, sans-serif`; ctx.fillStyle = '#0a1e3c'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-                ctx.fillText(groupName, cx, cy);
-            }
-
-            function getMissingGroups(repId) {
-                const store = issueStore[repId] || {};
-                return allGroups.filter(g => {
-                    const gd = store[g.groupId] || { issue: '', solution: '' };
-                    return !gd.issue.trim() || !gd.solution.trim();
-                });
-            }
-
-            // ============ 维格表 API 操作 ============
-            async function loadDataFromVika() {
-                try {
-                    const response = await fetch(API_BASE + '?pageSize=100', {
-                        headers: { 'Authorization': `Bearer ${VIKA_TOKEN}` }
-                    });
-                    const data = await response.json();
-                    if (data.success && data.data.records) {
-                        data.data.records.forEach(record => {
-                            const fields = record.fields;
-                            const name = fields['姓名'];
-                            const week = fields['周次'];
-                            if (name && week === CURRENT_WEEK) {
-                                if (!issueStore[name]) issueStore[name] = {};
-                                allGroups.forEach(g => {
-                                    issueStore[name][g.groupId] = {
-                                        issue: fields[g.groupId + '_问题'] || '',
-                                        solution: fields[g.groupId + '_方案'] || ''
-                                    };
-                                });
-                                submitStatus[name] = fields['提交状态'] === 'true';
-                            }
-                        });
-                    }
-                    saveStatus.textContent = '💾 云端数据已加载';
-                } catch (err) {
-                    console.error('加载数据失败:', err);
-                    saveStatus.textContent = '⚠️ 云端加载失败，使用本地数据';
-                }
-            }
-
-            async function saveToVika(repId, markSubmitted) {
-                try {
-                    const fields = {
-                        '姓名': repId,
-                        '周次': CURRENT_WEEK,
-                        '提交状态': markSubmitted ? 'true' : 'false'
-                    };
-                    allGroups.forEach(g => {
-                        const store = issueStore[repId] && issueStore[repId][g.groupId] ? issueStore[repId][g.groupId] : { issue: '', solution: '' };
-                        fields[g.groupId + '_问题'] = store.issue || '';
-                        fields[g.groupId + '_方案'] = store.solution || '';
-                    });
-
-                    const query = API_BASE + '?filterByFormula=' + encodeURIComponent(`AND({姓名}="${repId}",{周次}="${CURRENT_WEEK}")`);
-                    const existingResp = await fetch(query, {
-                        headers: { 'Authorization': `Bearer ${VIKA_TOKEN}` }
-                    });
-                    const existingData = await existingResp.json();
-                    const existingRecords = existingData.success ? existingData.data.records : [];
-
-                    if (existingRecords.length > 0) {
-                        const recordId = existingRecords[0].recordId;
-                        const updateBody = { records: [{ recordId: recordId, fields: fields }] };
-                        const updateResp = await fetch(API_BASE + '?fieldKey=name', {
-                            method: 'PATCH',
-                            headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type': 'application/json' },
-                            body: JSON.stringify(updateBody)
-                        });
-                        const updateResult = await updateResp.json();
-                        if (!updateResult.success) { console.error('更新失败:', updateResult); throw new Error('更新失败'); }
-                    } else {
-                        const createBody = { records: [{ fields: fields }] };
-                        const createResp = await fetch(API_BASE + '?fieldKey=name', {
-                            method: 'POST',
-                            headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type': 'application/json' },
-                            body: JSON.stringify(createBody)
-                        });
-                        const createResult = await createResp.json();
-                        if (!createResult.success) { console.error('创建失败:', createResult); throw new Error('创建失败'); }
-                    }
-
-                    if (markSubmitted) { submitStatus[repId] = true; saveStatus.textContent = '✅ 已提交至云端'; }
-                    else { submitStatus[repId] = false; saveStatus.textContent = '💾 已暂存至云端'; }
-                } catch (err) {
-                    console.error('保存失败:', err);
-                    saveStatus.textContent = '⚠️ 云端保存失败，请重试';
-                }
-            }
-
-            // ============ UI 渲染 ============
-            function renderRepDetailView(repId) {
-                const rep = REPS.find(r => r.id === repId) || ALL_USERS.find(u => u.id === repId);
-                const store = issueStore[repId] || {};
-                let html = '';
-
-                // 清扬板块：业绩追踪 + 执行追踪
-                html += '<h2 style="color:#1e88e5; margin-bottom:16px;">清扬增长 +10%</h2>';
-                // 业绩追踪
-                html += '<div class="clear-block" style="margin-bottom:24px;"><div class="block-title">📈 业绩追踪</div><div class="ring-grid">';
-                performanceGroups.forEach(g => {
-                    const ach = getGroupAchieve(repId, g);
-                    html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
-                });
-                html += '</div></div>';
-
-                // 执行追踪
-                html += '<div class="clear-block" style="margin-bottom:24px;"><div class="block-title">⚙️ 执行追踪</div><div class="ring-grid">';
-                executionGroups.forEach(g => {
-                    if (g.noData) return; // 无数据的组不显示环形图
-                    const ach = getGroupAchieve(repId, g);
-                    html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
-                });
-                html += '</div></div>';
-
-                // 多芬和VSL
-                html += '<div class="right-blocks">';
-                html += '<div class="dove-block"><div class="block-title" style="color:#2e9a6e;">多芬 Dream & Debeers</div><div class="ring-grid">';
-                doveGroups.forEach(g => {
-                    const ach = getGroupAchieve(repId, g);
-                    html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
-                });
-                html += '</div></div>';
-                html += '<div class="vsl-block"><div class="block-title" style="color:#8e44ad;">VSL 夏季增量</div><div class="ring-grid">';
-                vslGroups.forEach(g => {
-                    const ach = getGroupAchieve(repId, g);
-                    html += `<div class="ring-card-h"><canvas id="ring_${repId}_${g.groupId}" class="ring-canvas-sm" width="70" height="70"></canvas><div class="ring-info"><strong>${Math.round(ach.achieve*100)}%</strong><span>目标：${ach.target.toFixed(0)}</span><br><span>达成：${ach.actual.toFixed(0)}</span></div></div>`;
-                });
-                html += '</div></div></div>';
-
-                // 未填写提醒
-                const missing = getMissingGroups(repId);
-                if (missing.length > 0) {
-                    html += `<div class="reminder-card"><span style="font-weight:600;color:#a15813;">⚠️ 以下指标尚未填写，点击跳转：</span>`;
-                    missing.forEach(mg => html += `<span class="reminder-badge" data-groupid="${mg.groupId}">${mg.groupName}</span>`);
-                    html += `</div>`;
-                }
-
-                // 详细填写区
-                html += '<h3 style="margin:20px 0 12px;">📝 问题与方案</h3>';
-                [...performanceGroups, ...executionGroups, ...doveGroups, ...vslGroups].forEach(g => {
-                    const gd = store[g.groupId] || { issue: '', solution: '' };
-                    const color = doveGroups.includes(g) ? '#2e9a6e' : (vslGroups.includes(g) ? '#8e44ad' : '#1e88e5');
-                    html += `<div class="group-detail-card" id="${g.groupId}"><div class="group-detail-header" style="border-left-color: ${color};">${g.groupName}</div>`;
-                    if (!g.noData) {
-                        html += '<div class="sub-items-row">';
-                        const data = generateAct(repId);
-                        g.kpis.forEach(k => {
-                            const kd = data[k.id] || { target: 100, actual: 0, achieve: 0 };
-                            const achieve = Math.round(kd.achieve * 100);
-                            html += `<div class="sub-item"><span class="sub-item-name">${k.name}</span><div class="progress-container"><span class="progress-label">目标 ${kd.target.toFixed(0)}</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${Math.min(achieve,100)}%; background:${color};"></div></div><span class="progress-value">达成 ${kd.actual.toFixed(0)} (${achieve}%)</span></div></div>`;
-                        });
-                        html += '</div>';
-                    }
-                    html += `<textarea class="group-textarea-box" data-groupid="${g.groupId}" placeholder="请填写问题及改进方案">${gd.issue ? gd.issue + '\n\n---改进方案---\n' + gd.solution : ''}</textarea></div>`;
-                });
-
-                dynamicContent.innerHTML = html;
-
-                // 绘制环形图
-                allGroups.forEach(g => {
-                    if (g.noData) return;
-                    const c = document.getElementById(`ring_${repId}_${g.groupId}`);
-                    if (c) {
-                        const color = doveGroups.includes(g) ? '#2e9a6e' : (vslGroups.includes(g) ? '#8e44ad' : '#1e88e5');
-                        drawRing(c.getContext('2d'), getGroupAchieve(repId, g).achieve, color, g.groupName);
+    async function loadDataFromVika() {
+        try {
+            const resp = await fetch(API_BASE + '?pageSize=100', { headers: { 'Authorization': `Bearer ${VIKA_TOKEN}` } });
+            if (!resp.ok) throw new Error('HTTP '+resp.status);
+            const data = await resp.json();
+            if (data.success && data.data.records) {
+                data.data.records.forEach(rec => {
+                    const f = rec.fields, name = f['姓名'], week = f['周次'];
+                    if (name && week === CURRENT_WEEK) {
+                        if (!issueStore[name]) issueStore[name] = {};
+                        allGroupsForForm.forEach(g => { issueStore[name][g.groupId] = { issue: f[g.groupId+'_问题']||'', solution: f[g.groupId+'_方案']||'' }; });
+                        submitStatus[name] = f['提交状态'] === 'true';
                     }
                 });
-
-                document.querySelectorAll('.reminder-badge').forEach(badge => {
-                    badge.addEventListener('click', function(e) {
-                        const groupId = this.dataset.groupid;
-                        const target = document.getElementById(groupId);
-                        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    });
-                });
-                document.getElementById('saveDraftBtn').style.display = 'inline-block';
-                document.getElementById('backToTeamBtn').style.display = 'none';
             }
+            saveStatus.textContent = '💾 云端数据已加载';
+        } catch (err) { saveStatus.textContent = '⚠️ 离线模式（本地数据）'; }
+    }
+    async function saveToVika(repId, markSubmitted) {
+        const fields = { '姓名': repId, '周次': CURRENT_WEEK, '提交状态': markSubmitted ? 'true' : 'false' };
+        allGroupsForForm.forEach(g => {
+            const s = issueStore[repId]?.[g.groupId] || { issue:'', solution:'' };
+            fields[g.groupId+'_问题'] = s.issue; fields[g.groupId+'_方案'] = s.solution;
+        });
+        const query = API_BASE + '?filterByFormula=' + encodeURIComponent(`AND({姓名}="${repId}",{周次}="${CURRENT_WEEK}")`);
+        const existResp = await fetch(query, { headers: { 'Authorization': `Bearer ${VIKA_TOKEN}` } });
+        const existData = await existResp.json();
+        if (existData.success && existData.data.records.length > 0) {
+            const rid = existData.data.records[0].recordId;
+            await fetch(API_BASE + '?fieldKey=name', { method:'PATCH', headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type':'application/json' }, body: JSON.stringify({ records:[{ recordId:rid, fields }] }) });
+        } else {
+            await fetch(API_BASE + '?fieldKey=name', { method:'POST', headers: { 'Authorization': `Bearer ${VIKA_TOKEN}`, 'Content-Type':'application/json' }, body: JSON.stringify({ records:[{ fields }] }) });
+        }
+        submitStatus[repId] = markSubmitted;
+    }
 
-            function renderDirectorView() {
-                let html = '<div class="section-card"><div style="padding:20px 28px;">📋 北区总监 · 申毅 · 团队总览</div><div class="freeze-wrapper"><table class="data-table"><thead><tr><th>SM团队</th>';
-                allGroups.forEach(g => html += `<th>${g.groupName}</th>`);
-                html += '</tr></thead><tbody>';
-                html += '<tr class="north-summary"><td>📊 北区达成</td>';
-                allGroups.forEach(g => {
-                    if (g.noData) { html += '<td></td>'; return; }
-                    let totalTarget = 0, totalActual = 0;
-                    REPS.forEach(r => {
-                        const { target, actual } = getGroupAchieve(r.id, g);
-                        totalTarget += target;
-                        totalActual += actual;
-                    });
-                    const northAch = totalTarget > 0 ? Math.round((totalActual / totalTarget) * 100) : 0;
-                    html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(northAch,100)}%;"></div></div><span>${northAch}%</span></div></td>`;
-                });
-                html += '</tr>';
-                MANAGERS.forEach(sm => {
-                    const subs = REPS.filter(r => r.managerId === sm.id);
-                    html += `<tr><td><span class="sm-link" data-sm-id="${sm.id}">SM-${sm.name} · ${sm.team}</span></td>`;
-                    allGroups.forEach(g => {
-                        if (g.noData) { html += '<td></td>'; return; }
-                        let gt = 0, ga = 0;
-                        subs.forEach(r => { const { target, actual } = getGroupAchieve(r.id, g); gt += target; ga += actual; });
-                        const gAch = gt > 0 ? Math.round((ga / gt) * 100) : 0;
-                        html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(gAch,100)}%;"></div></div><span>${gAch}%</span></div></td>`;
-                    });
-                    html += '</tr>';
-                });
-                html += '</tbody></table></div></div>';
-                dynamicContent.innerHTML = html;
-                document.querySelectorAll('.sm-link').forEach(el => el.addEventListener('click', e => {
-                    currentUserId = e.target.dataset.smId; viewMode = 'manager'; viewingSubordinateId = null; showLevel1 = false; updateUI();
-                }));
-                document.getElementById('saveDraftBtn').style.display = 'none';
-                document.getElementById('backToTeamBtn').style.display = 'none';
-            }
+    function renderRepDetailView(repId) {
+        const rep = REPS.find(r=>r.id===repId) || ALL_USERS.find(u=>u.id===repId);
+        const store = issueStore[repId] || {};
+        let html = '';
 
-            function renderManagerView(mId) {
-                const sm = MANAGERS.find(m => m.id === mId);
-                const subs = REPS.filter(r => r.managerId === mId);
-                let html = `<div class="section-card"><div style="padding:20px 28px; display:flex;"><span style="font-weight:700;font-size:20px;">📋 SM-${sm.name} · ${sm.team}</span><button class="toggle-btn" id="toggleLevelBtn">${showLevel1?'显示汇总':'显示明细'}</button></div><div class="freeze-wrapper"><table class="data-table"><thead><tr><th>AKDM</th><th>省份</th>`;
-                if (showLevel1) allGroups.forEach(g => html += `<th>${g.groupName}</th>`);
-                else allGroups.forEach(g => html += `<th>${g.groupName}</th>`);
-                html += '<th>提交</th></tr>';
-                html += '<tr class="team-summary"><td colspan="2">📊 团队合计</td>';
-                if (showLevel1) {
-                    allGroups.forEach(g => {
-                        let st = 0, sa = 0;
-                        subs.forEach(r => { const { target, actual } = getGroupAchieve(r.id, g); st += target; sa += actual; });
-                        const ach = st > 0 ? Math.round((sa / st) * 100) : 0;
-                        html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(ach,100)}%;"></div></div><span>${ach}%</span></div></td>`;
-                    });
-                } else {
-                    allGroups.forEach(g => {
-                        let st = 0, sa = 0;
-                        subs.forEach(r => { const { target, actual } = getGroupAchieve(r.id, g); st += target; sa += actual; });
-                        const ach = st > 0 ? Math.round((sa / st) * 100) : 0;
-                        html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(ach,100)}%;"></div></div><span>${ach}%</span></div></td>`;
-                    });
-                }
-                html += '<td></td></tr></thead><tbody>';
-                subs.forEach(rep => {
-                    const subm = submitStatus[rep.id] || false;
-                    html += `<tr class="${subm?'':'row-pending'}"><td><span class="rep-link" data-repid="${rep.id}">AKDM-${rep.name}</span></td><td>${rep.province}</td>`;
-                    if (showLevel1) {
-                        allGroups.forEach(g => {
-                            if (g.noData) { html += '<td></td>'; return; }
-                            const data = generateAct(rep.id);
-                            let cell = '<div class="level1-detail">';
-                            g.kpis.forEach(k => {
-                                const kd = data[k.id] || { target: 100, actual: 0, achieve: 0 };
-                                const ach = Math.round(kd.achieve * 100);
-                                cell += `<div class="level1-item"><span style="font-weight:500;min-width:50px;">${k.name}</span><div class="progress-track" style="width:50px;height:6px;"><div class="progress-fill" style="width:${Math.min(ach,100)}%;height:6px;"></div></div><span>${ach}%</span></div>`;
-                            });
-                            cell += '</div>'; html += `<td>${cell}</td>`;
-                        });
-                    } else {
-                        allGroups.forEach(g => {
-                            if (g.noData) { html += '<td></td>'; return; }
-                            const { achieve } = getGroupAchieve(rep.id, g);
-                            const ach = Math.round(achieve * 100);
-                            html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(ach,100)}%;"></div></div><span>${ach}%</span></div></td>`;
-                        });
-                    }
-                    html += `<td><span class="status-badge ${subm?'status-submitted':'status-pending'}">${subm?'已提交':'未提交'}</span></td></tr>`;
-                });
-                html += '</tbody></table></div></div>';
-                dynamicContent.innerHTML = html;
-                document.getElementById('toggleLevelBtn').addEventListener('click', () => { showLevel1 = !showLevel1; updateUI(); });
-                document.querySelectorAll('.rep-link').forEach(el => el.addEventListener('click', e => {
-                    viewSubordinate(e.target.dataset.repid);
-                }));
-                document.getElementById('saveDraftBtn').style.display = 'none';
-                document.getElementById('backToTeamBtn').style.display = 'none';
-            }
+        html += '<div class="section-block"><div class="big-title" style="color:#1e88e5; border-color:#1e88e5;">📈 业绩追踪</div>';
+        html += '<div class="bw-pc-row">';
+        html += '<div class="bw-pc-col bw"><span class="bw-pc-label bw">BW</span>';
+        for (let i = 0; i < 3; i++) {
+            html += '<div class="perf-card"><div class="perf-card-title">' + ['一级销量','二级销量','新品PPL'][i] + '</div><div class="vertical-row">';
+            const kd = getKpi(repId, bwSales[i].id);
+            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${bwSales[i].id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${bwSales[i].name}</div></div>`;
+            html += '</div></div>';
+        }
+        html += '<div class="perf-card"><div class="perf-card-title">Key Pack</div><div class="horizontal-row">';
+        bwKeyPack.forEach(k => {
+            const kd = getKpi(repId, k.id);
+            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`;
+        });
+        html += '</div></div></div>';
 
-            function renderAdminView() {
-                let html = '<div class="section-card"><div style="padding:20px 28px;">📋 管理员 · 全员提交状态</div>';
-                MANAGERS.forEach(sm => {
-                    const subs = REPS.filter(r => r.managerId === sm.id);
-                    html += `<div style="padding:0 20px 12px;"><strong>👔 SM-${sm.name} · ${sm.team}</strong></div><div class="freeze-wrapper"><table class="data-table"><thead><tr><th>AKDM</th><th>省份</th><th>提交</th>`;
-                    allGroups.forEach(g => html += `<th>${g.groupName}</th>`);
-                    html += '</tr></thead><tbody>';
-                    subs.forEach(rep => {
-                        const subm = submitStatus[rep.id] || false;
-                        html += `<tr class="${subm?'':'row-pending'}"><td><span class="rep-link" data-repid="${rep.id}">AKDM-${rep.name}</span></td><td>${rep.province}</td><td><span class="status-badge ${subm?'status-submitted':'status-pending'}">${subm?'已提交':'未提交'}</span></td>`;
-                        allGroups.forEach(g => {
-                            if (g.noData) { html += '<td></td>'; return; }
-                            const { achieve } = getGroupAchieve(rep.id, g);
-                            html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(achieve*100,100)}%;"></div></div><span>${Math.round(achieve*100)}%</span></div></td>`;
-                        });
-                        html += '</tr>';
-                    });
-                    html += '</tbody></table></div>';
+        html += '<div class="bw-pc-col pc"><span class="bw-pc-label pc">PC</span>';
+        for (let i = 0; i < 3; i++) {
+            html += '<div class="perf-card"><div class="perf-card-title">' + ['一级销量','二级销量','新品PPL'][i] + '</div><div class="vertical-row">';
+            const kd = getKpi(repId, pcSales[i].id);
+            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${pcSales[i].id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${pcSales[i].name}</div></div>`;
+            html += '</div></div>';
+        }
+        html += '<div class="perf-card"><div class="perf-card-title">Key Pack</div><div class="horizontal-row">';
+        pcKeyPack.forEach(k => {
+            const kd = getKpi(repId, k.id);
+            html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`;
+        });
+        html += '</div></div></div>';
+        html += '</div></div>';
+
+        html += '<div class="section-block"><div class="big-title" style="color:#8e44ad; border-color:#8e44ad;">⚙️ 执行追踪</div>';
+        html += '<div class="exec-row"><div class="exec-block"><div class="exec-block-title">大店执行</div>';
+        html += '<div class="exec-sub-col bw" style="margin-bottom:12px;"><div class="exec-sub-label">BW</div><div class="horizontal-row">';
+        execBWStore.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
+        html += '</div></div>';
+        html += '<div class="exec-sub-col pc"><div class="exec-sub-label">PC</div><div class="horizontal-row">';
+        execPCStore.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
+        html += '</div></div></div></div>';
+
+        html += '<div class="exec-block"><div class="exec-block-title">小店执行-AS</div>';
+        html += '<div class="exec-sub-col bw" style="margin-bottom:12px;"><div class="exec-sub-label">BW Hair-季活</div><div class="horizontal-row">';
+        execSmallBW.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
+        html += '</div></div>';
+        html += '<div class="exec-sub-col pc"><div class="exec-sub-label">PC-季活</div><div class="horizontal-row">';
+        execSmallPC.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
+        html += '</div></div></div></div>';
+
+        html += '<div class="exec-row" style="margin-top:20px;"><div class="exec-block"><div class="exec-block-title">新兴渠道</div><div class="horizontal-row">';
+        execNewChannel.forEach(k => html += `<div class="micro-ring-item"><canvas id="ring_${repId}_${k.id}" class="micro-ring-canvas" width="60" height="60"></canvas><div class="micro-ring-name">${k.name}</div></div>`);
+        html += '</div></div></div></div>';
+
+        const missing = allGroupsForForm.filter(g => { const gd = store[g.groupId]||{issue:'',solution:''}; return !gd.issue.trim()||!gd.solution.trim(); });
+        if (missing.length) html += '<div class="reminder-card"><span>⚠️ 未填写：</span>'+missing.map(mg=>`<span class="reminder-badge" data-groupid="${mg.groupId}">${mg.groupName}</span>`).join('')+'</div>';
+
+        html += '<h3 style="margin:20px 0;">📝 问题与方案</h3>';
+        allGroupsForForm.forEach(g => {
+            const gd = store[g.groupId]||{issue:'',solution:''};
+            html += `<div class="group-detail-card" id="${g.groupId}"><div class="group-detail-header" style="border-left-color:${g.color||'#1e88e5'};">${g.groupName}</div>`;
+            if (!g.noData) {
+                html += '<div class="sub-items-row">';
+                g.kpis.forEach(k => {
+                    const kd = getKpi(repId, k.id) || {target:100,actual:0,achieve:0};
+                    const ach = Math.round(kd.achieve*100);
+                    html += `<div class="sub-item"><span class="sub-item-name">${k.name||k.sub||''}</span><div class="progress-container"><span class="progress-label">目标 ${kd.target}</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${Math.min(ach,100)}%; background:${g.color||'#1e88e5'};"></div></div><span class="progress-value">达成 ${kd.actual} (${ach}%)</span></div></div>`;
                 });
                 html += '</div>';
-                dynamicContent.innerHTML = html;
-                document.querySelectorAll('.rep-link').forEach(el => el.addEventListener('click', e => {
-                    viewSubordinate(e.target.dataset.repid);
-                }));
-                document.getElementById('saveDraftBtn').style.display = 'none';
-                document.getElementById('backToTeamBtn').style.display = 'none';
             }
+            html += `<textarea class="group-textarea-box" data-groupid="${g.groupId}" placeholder="请填写问题及改进方案">${gd.issue?gd.issue+'\n\n---改进方案---\n'+gd.solution:''}</textarea></div>`;
+        });
+        dynamicContent.innerHTML = html;
 
-            function viewSubordinate(repId) { viewingSubordinateId = repId; currentUserId = repId; viewMode = 'rep'; updateUI(); }
+        [bwSales, pcSales, bwKeyPack, pcKeyPack, execBWStore, execPCStore, execSmallBW, execSmallPC, execNewChannel].flat().forEach(k => {
+            const c=document.getElementById(`ring_${repId}_${k.id}`);
+            if(c) drawMicroRing(c.getContext('2d'), getKpi(repId,k.id).achieve, '#1e88e5');
+        });
+        document.querySelectorAll('.reminder-badge').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.groupid)?.scrollIntoView({behavior:'smooth',block:'center'}));
+        document.getElementById('saveDraftBtn').style.display='inline-block';
+        document.getElementById('backToTeamBtn').style.display='none';
+    }
 
-            async function saveCurrentInputs(markSubmitted = false) {
-                const repId = viewingSubordinateId || (getCurrentUser()?.role === 'rep' ? currentUserId : null);
-                if (!repId) return;
-                document.querySelectorAll('.group-textarea-box').forEach(ta => {
-                    const groupId = ta.dataset.groupid;
-                    const content = ta.value;
-                    if (!issueStore[repId]) issueStore[repId] = {};
-                    if (!issueStore[repId][groupId]) issueStore[repId][groupId] = { issue: '', solution: '' };
-                    const parts = content.split('\n\n---改进方案---\n');
-                    issueStore[repId][groupId].issue = parts[0] || '';
-                    issueStore[repId][groupId].solution = parts[1] || '';
-                });
-                await saveToVika(repId, markSubmitted);
-            }
-
-            function updateUI() {
-                const user = ALL_USERS.find(u => u.id === currentUserId);
-                roleDisplay.textContent = user.role === 'director' ? '🏢 总监' : (user.role === 'admin' ? '🔐 管理员' : (user.role === 'manager' ? '👔 SM' : '🧑‍💼 AKDM'));
-                if (user.role === 'director') { renderDirectorView(); }
-                else if (user.role === 'admin') { renderAdminView(); }
-                else if (user.role === 'manager' && !viewingSubordinateId) { renderManagerView(user.id); }
-                else { const repId = viewingSubordinateId || (user.role === 'rep' ? user.id : null); if (repId) renderRepDetailView(repId); }
-                renderSelect();
-            }
-
-            function renderSelect() {
-                userSelect.innerHTML = '';
-                const dirOpt = document.createElement('option'); dirOpt.value = DIRECTOR.id; dirOpt.textContent = `🏢 北区总监-${DIRECTOR.name}`; if (currentUserId === DIRECTOR.id) dirOpt.selected = true; userSelect.appendChild(dirOpt);
-                const adminOpt = document.createElement('option'); adminOpt.value = ADMIN.id; adminOpt.textContent = `🔐 管理员`; if (currentUserId === ADMIN.id) adminOpt.selected = true; userSelect.appendChild(adminOpt);
-                MANAGERS.forEach(m => { const opt = document.createElement('option'); opt.value = m.id; opt.textContent = `👔 SM-${m.name}`; if (m.id === currentUserId && viewMode === 'manager' && !viewingSubordinateId) opt.selected = true; userSelect.appendChild(opt); });
-                REPS.forEach(r => { const opt = document.createElement('option'); opt.value = r.id; opt.textContent = `🧑‍💼 AKDM-${r.name} · ${r.province}`; if (r.id === currentUserId && (viewMode === 'rep' || viewingSubordinateId)) opt.selected = true; userSelect.appendChild(opt); });
-            }
-
-            // 事件绑定
-            document.getElementById('userSelect').addEventListener('change', e => {
-                currentUserId = e.target.value; viewingSubordinateId = null;
-                viewMode = ALL_USERS.find(u => u.id === currentUserId).role; showLevel1 = false;
-                updateUI();
+    function renderDirectorView() {
+        let html = '<div class="section-card"><div style="padding:20px 28px;">📋 北区总监 · 申毅 · 团队总览</div><div class="freeze-wrapper"><table class="data-table"><thead><tr><th>SM团队</th>';
+        allGroupsForForm.forEach(g => html += `<th>${g.groupName}</th>`);
+        html += '</tr></thead><tbody><tr class="north-summary"><td>📊 北区达成</td>';
+        allGroupsForForm.forEach(g => {
+            if (g.noData) { html += '<td></td>'; return; }
+            let tt=0,ta=0; REPS.forEach(r => { const {target,actual}=getGroupAchieve(r.id,g); tt+=target; ta+=actual; });
+            const na = tt>0 ? Math.round((ta/tt)*100) : 0;
+            html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(na,100)}%;"></div></div><span>${na}%</span></div></td>`;
+        });
+        html += '</tr>';
+        MANAGERS.forEach(sm => {
+            const subs = REPS.filter(r=>r.managerId===sm.id);
+            html += `<tr><td><span class="sm-link" data-sm-id="${sm.id}">SM-${sm.name} · ${sm.team}</span></td>`;
+            allGroupsForForm.forEach(g => {
+                if (g.noData) { html += '<td></td>'; return; }
+                let gt=0,ga=0; subs.forEach(r => { const {target,actual}=getGroupAchieve(r.id,g); gt+=target; ga+=actual; });
+                const ga2 = gt>0 ? Math.round((ga/gt)*100) : 0;
+                html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(ga2,100)}%;"></div></div><span>${ga2}%</span></div></td>`;
             });
-            document.getElementById('backToTeamBtn').addEventListener('click', () => {
-                if (getCurrentUser().role === 'manager') { viewingSubordinateId = null; viewMode = 'manager'; updateUI(); }
-            });
-            document.getElementById('resetToMyDataBtn').addEventListener('click', () => {
-                const repId = viewingSubordinateId || (getCurrentUser()?.role === 'rep' ? currentUserId : null);
-                if (repId && issueStore[repId]) Object.keys(issueStore[repId]).forEach(k => issueStore[repId][k] = { issue: '', solution: '' });
-                updateUI();
-            });
-            document.getElementById('saveAllBtn').addEventListener('click', () => { saveCurrentInputs(true); });
-            document.getElementById('saveDraftBtn').addEventListener('click', () => { saveCurrentInputs(false); alert('内容已暂存至云端，可继续编辑。'); });
-            dynamicContent.addEventListener('input', () => {
-                saveStatus.textContent = '✏️ 编辑中...';
-                clearTimeout(window._autoSaveTimer);
-                window._autoSaveTimer = setTimeout(() => saveCurrentInputs(false), 800);
-            });
+            html += '</tr>';
+        });
+        html += '</tbody></table></div></div>';
+        dynamicContent.innerHTML = html;
+        document.querySelectorAll('.sm-link').forEach(el=>el.addEventListener('click', e=>{
+            currentUserId = e.target.dataset.smId; viewMode='manager'; viewingSubordinateId=null; showLevel1=false; updateUI();
+        }));
+        document.getElementById('saveDraftBtn').style.display='none';
+    }
 
-            function getCurrentUser() { return ALL_USERS.find(u => u.id === currentUserId); }
+    function renderManagerView(mId) {
+        const sm = MANAGERS.find(m=>m.id===mId); const subs = REPS.filter(r=>r.managerId===mId);
+        let html = `<div class="section-card"><div style="padding:20px 28px; display:flex;"><span style="font-weight:700;font-size:20px;">📋 SM-${sm.name} · ${sm.team}</span><button class="toggle-btn" id="toggleLevelBtn">${showLevel1?'显示汇总':'显示明细'}</button></div><div class="freeze-wrapper"><table class="data-table"><thead><tr><th>AKDM</th><th>省份</th>`;
+        if (showLevel1) allGroupsForForm.forEach(g => html += `<th>${g.groupName}</th>`);
+        else allGroupsForForm.forEach(g => html += `<th>${g.groupName}</th>`);
+        html += '<th>提交</th></tr><tr class="team-summary"><td colspan="2">📊 团队合计</td>';
+        if (showLevel1) { allGroupsForForm.forEach(g => { let st=0,sa=0; subs.forEach(r=>{ const {target,actual}=getGroupAchieve(r.id,g); st+=target; sa+=actual; }); const ach=st>0?Math.round((sa/st)*100):0; html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(ach,100)}%;"></div></div><span>${ach}%</span></div></td>`; }); }
+        else { allGroupsForForm.forEach(g => { let st=0,sa=0; subs.forEach(r=>{ const {target,actual}=getGroupAchieve(r.id,g); st+=target; sa+=actual; }); const ach=st>0?Math.round((sa/st)*100):0; html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(ach,100)}%;"></div></div><span>${ach}%</span></div></td>`; }); }
+        html += '<td></td></tr></thead><tbody>';
+        subs.forEach(rep => {
+            const subm = submitStatus[rep.id]||false;
+            html += `<tr class="${subm?'':'row-pending'}"><td><span class="rep-link" data-repid="${rep.id}">AKDM-${rep.name}</span></td><td>${rep.province}</td>`;
+            if (showLevel1) { allGroupsForForm.forEach(g => { if (g.noData) { html += '<td></td>'; return; } const data=generateAct(); let cell='<div class="level1-detail">'; g.kpis.forEach(k=>{ const kd=data[k.id]||{target:100,actual:0,achieve:0}; const ach=Math.round(kd.achieve*100); cell += `<div class="level1-item"><span>${k.name||k.sub||''}</span><div class="progress-track" style="width:50px;height:6px;"><div class="progress-fill" style="width:${Math.min(ach,100)}%;"></div></div><span>${ach}%</span></div>`; }); cell+='</div>'; html += `<td>${cell}</td>`; }); }
+            else { allGroupsForForm.forEach(g => { if (g.noData) { html += '<td></td>'; return; } const {achieve}=getGroupAchieve(rep.id,g); const ach=Math.round(achieve*100); html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(ach,100)}%;"></div></div><span>${ach}%</span></div></td>`; }); }
+            html += `<td><span class="status-badge ${subm?'status-submitted':'status-pending'}">${subm?'已提交':'未提交'}</span></td></tr>`;
+        });
+        html += '</tbody></table></div></div>';
+        dynamicContent.innerHTML = html;
+        document.getElementById('toggleLevelBtn').addEventListener('click', ()=>{ showLevel1=!showLevel1; updateUI(); });
+        document.querySelectorAll('.rep-link').forEach(el=>el.addEventListener('click', e=>viewSubordinate(e.target.dataset.repid)));
+        document.getElementById('saveDraftBtn').style.display='none';
+    }
 
-            // 初始化
-            async function init() {
-                saveStatus.textContent = '💾 正在加载云端数据...';
-                await loadDataFromVika();
-                renderSelect();
-                updateUI();
-            }
+    function renderAdminView() {
+        let html = '<div class="section-card"><div style="padding:20px 28px;">📋 管理员 · 全员提交状态</div>';
+        MANAGERS.forEach(sm => {
+            const subs = REPS.filter(r=>r.managerId===sm.id);
+            html += `<div><strong>👔 SM-${sm.name} · ${sm.team}</strong></div><div class="freeze-wrapper"><table class="data-table"><thead><tr><th>AKDM</th><th>省份</th><th>提交</th>`;
+            allGroupsForForm.forEach(g => html += `<th>${g.groupName}</th>`);
+            html += '</tr></thead><tbody>';
+            subs.forEach(rep => {
+                const subm = submitStatus[rep.id]||false;
+                html += `<tr class="${subm?'':'row-pending'}"><td><span class="rep-link" data-repid="${rep.id}">AKDM-${rep.name}</span></td><td>${rep.province}</td><td><span class="status-badge ${subm?'status-submitted':'status-pending'}">${subm?'已提交':'未提交'}</span></td>`;
+                allGroupsForForm.forEach(g => { if (g.noData) { html += '<td></td>'; return; } const {achieve}=getGroupAchieve(rep.id,g); html += `<td><div class="progress-wrapper"><div class="progress-track"><div class="progress-fill" style="width:${Math.min(achieve*100,100)}%;"></div></div><span>${Math.round(achieve*100)}%</span></div></td>`; });
+                html += '</tr>';
+            });
+            html += '</tbody></table></div>';
+        });
+        html += '</div>';
+        dynamicContent.innerHTML = html;
+        document.querySelectorAll('.rep-link').forEach(el=>el.addEventListener('click', e=>viewSubordinate(e.target.dataset.repid)));
+        document.getElementById('saveDraftBtn').style.display='none';
+    }
 
-            init();
-        })();
-    </script>
+    function viewSubordinate(repId) { viewingSubordinateId=repId; currentUserId=repId; viewMode='rep'; updateUI(); }
+    async function saveCurrentInputs(markSubmitted=false) {
+        const repId = viewingSubordinateId || (getCurrentUser()?.role==='rep'?currentUserId:null); if(!repId) return;
+        document.querySelectorAll('.group-textarea-box').forEach(ta => {
+            const gid = ta.dataset.groupid; const content = ta.value;
+            if(!issueStore[repId]) issueStore[repId]={}; if(!issueStore[repId][gid]) issueStore[repId][gid]={issue:'',solution:''};
+            const parts = content.split('\n\n---改进方案---\n');
+            issueStore[repId][gid].issue = parts[0]||''; issueStore[repId][gid].solution = parts[1]||'';
+        });
+        try { await saveToVika(repId, markSubmitted); showToast(markSubmitted?'✅ 已提交至云端':'💾 已暂存至云端', markSubmitted?'#2e7d32':'#1565c0'); }
+        catch(e) { showToast('❌ 保存失败，请重试','#d32f2f'); }
+    }
+    function updateUI() {
+        const user = ALL_USERS.find(u=>u.id===currentUserId);
+        roleDisplay.textContent = user.role==='director'?'🏢 总监':(user.role==='admin'?'🔐 管理员':(user.role==='manager'?'👔 SM':'🧑‍💼 AKDM'));
+        if (user.role==='director') renderDirectorView();
+        else if (user.role==='admin') renderAdminView();
+        else if (user.role==='manager' && !viewingSubordinateId) renderManagerView(user.id);
+        else { const rid=viewingSubordinateId||(user.role==='rep'?user.id:null); if(rid) renderRepDetailView(rid); }
+        renderSelect();
+    }
+    function renderSelect() {
+        userSelect.innerHTML = '';
+        [DIRECTOR, ADMIN, ...MANAGERS, ...REPS].forEach(u => {
+            const o = document.createElement('option'); o.value=u.id;
+            if (u.role==='director') o.textContent=`🏢 北区总监-${u.name}`;
+            else if (u.role==='admin') o.textContent='🔐 管理员';
+            else if (u.role==='manager') o.textContent=`👔 SM-${u.name}`;
+            else o.textContent=`🧑‍💼 AKDM-${u.name} · ${u.province}`;
+            if (u.id===currentUserId && !viewingSubordinateId) o.selected=true;
+            userSelect.appendChild(o);
+        });
+    }
+    document.getElementById('userSelect').addEventListener('change', e => {
+        currentUserId = e.target.value; viewingSubordinateId=null;
+        viewMode = ALL_USERS.find(u=>u.id===currentUserId).role; showLevel1=false; updateUI();
+    });
+    document.getElementById('backToTeamBtn').addEventListener('click', ()=>{
+        if (getCurrentUser().role==='manager') { viewingSubordinateId=null; viewMode='manager'; updateUI(); }
+    });
+    document.getElementById('resetToMyDataBtn').addEventListener('click', ()=>{
+        const rid = viewingSubordinateId || (getCurrentUser()?.role==='rep'?currentUserId:null);
+        if (rid && issueStore[rid]) Object.keys(issueStore[rid]).forEach(k=>issueStore[rid][k]={issue:'',solution:''});
+        updateUI();
+    });
+    document.getElementById('saveAllBtn').addEventListener('click', ()=>saveCurrentInputs(true));
+    document.getElementById('saveDraftBtn').addEventListener('click', ()=>saveCurrentInputs(false));
+    dynamicContent.addEventListener('input', ()=>{ clearTimeout(window._st); window._st = setTimeout(()=>saveCurrentInputs(false), 800); });
+    function getCurrentUser() { return ALL_USERS.find(u=>u.id===currentUserId); }
+    async function init() { saveStatus.textContent='💾 正在加载云端数据...'; await loadDataFromVika(); renderSelect(); updateUI(); }
+    init();
+})();
+</script>
 </body>
 </html>
